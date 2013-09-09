@@ -1,0 +1,1 @@
+var SL=SLib={};SL.log=function(){var e={};return e.i=e.info=function(e){console.log("%c"+e,"background: #222; color: #bada55")},e.w=e.warnning=function(e){console.log("%c"+e,"background: #222; color: orange")},e.e=e.error=function(e){console.log("%c"+e,"background: #222; color: red")},e}();
