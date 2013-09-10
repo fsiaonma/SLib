@@ -1,6 +1,7 @@
 /**
- * SL 类,命名空间，最高层。
- * @class SL
+ * SLib 类, 命名空间，最高层。
+ *
+ * @class sl
  * @constructor
  */
-var sl = SL = SLib = {};
+var sl = SLib = {};

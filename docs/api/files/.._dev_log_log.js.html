@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>..\dev\log\log.js - SLib 使用说明文档</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="SLib 使用说明文档"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.2.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/sl.html">sl</a></li>
+            
+                <li><a href="../classes/sl.log.html">sl.log</a></li>
+            
+                <li><a href="../classes/sl.log_mode.html">sl.log_mode</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: ..\dev\log\log.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * Log 类，用于打印信息，分为 debug, info, warnning, error 三类。
+ * @class sl.log
+ * @constructor
+ */
+sl.log = (function() {
+	var o = {};
+
+	var mode = 0;
+
+	/**
+     * 打印调试信息
+     * @example sl.log.d(&quot;mseeage&quot;) 或 sl.log.debug(&quot;mseeage&quot;);
+     * @method debug
+     */
+    o.d = o.debug = function(msg) {
+    	if (mode &lt;= sl.log_mode.DEBUG) {
+    		console.log(&quot;%c [DEBUG] &quot; + msg + &quot; &quot;, &quot;background: #222; color: white&quot;);
+    	}
+    }
+
+	/**
+     * 打印日志信息
+     * @example sl.log.i(&quot;mseeage&quot;) 或 sl.log.info(&quot;mseeage&quot;);
+     * @method info
+     */
+	o.i = o.info = function(msg) {
+		if (mode &lt;= sl.log_mode.INFO) {
+			console.log(&quot;%c [INFO] &quot; + msg + &quot; &quot;, &quot;background: #222; color: #bada55&quot;);
+		}
+	}
+
+	/**
+     * 打印警告信息
+     * @example sl.log.w(&quot;mseeage&quot;) 或 sl.log.warnning(&quot;message&quot;);
+     * @method warnning
+     */
+	o.w = o.warn = function(msg) {
+		if (mode &lt;= sl.log_mode.WARN) {
+			console.log(&quot;%c [WARN] &quot; + msg + &quot; &quot;, &quot;background: #222; color: orange&quot;);
+		}
+	}
+
+	/**
+     * 打印错误信息
+     * @example sl.log.e(&quot;mseeage&quot;) 或 sl.log.error(&quot;message&quot;);
+     * @method error
+     */
+	o.e = o.error = function(msg) {
+		if (mode &lt;= sl.log_mode.ERROR) {
+			console.log(&quot;%c [ERROR] &quot; + msg + &quot; &quot;, &quot;background: #222; color: red&quot;);
+		}
+	}
+
+	/**
+     * 设置打印日志级别，提供给开发者打印等级选择。
+     * @example sl.log.setMode(sl.log_mode.DEBUG); 或 sl.log.setMode(sl.log_mode.INFO);
+     * @param {Number} type 打印级别，可选项:
+     * &lt;ul&gt;
+     * 		&lt;li&gt; sl.log_mode.DEBUG &lt;/li&gt;
+     *		&lt;li&gt; sl.log_mode.INFO &lt;/li&gt;
+     *      &lt;li&gt; sl.log_mode.WARN &lt;/li&gt;
+     *      &lt;li&gt; sl.log_mode.ERROR &lt;/li&gt;
+     * &lt;/ul&gt; &lt;br /&gt;
+     * 详情参见 {{#crossLink &quot;sl.log_mode&quot;}}{{/crossLink}}。
+     * @method setMode
+     */
+	o.setMode = function(type) {
+		mode = type;
+	}
+
+	return o;
+})();
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

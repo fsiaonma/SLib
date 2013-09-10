@@ -1,0 +1,10 @@
+{
+    "name": "SLib 使用说明文档",
+    "description": "SLib 内嵌 Log 类，支持动态加载各模块，配置出适合开发者使用的 slib.pro.js",
+    "version": "1.2.1",
+    "url": "https://github.com/fsiaonma/SLib",
+    "options": {
+    	"paths": ["../dev"],
+        "outdir": "./api"
+    }
+}
