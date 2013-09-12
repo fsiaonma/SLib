@@ -6,6 +6,15 @@
         "url": "https://github.com/fsiaonma/SLib"
     },
     "files": {
+        "..\\dev\\array\\array.js": {
+            "name": "..\\dev\\array\\array.js",
+            "modules": {},
+            "classes": {
+                "sl.array": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\log\\log.js": {
             "name": "..\\dev\\log\\log.js",
             "modules": {},
@@ -36,6 +45,19 @@
     },
     "modules": {},
     "classes": {
+        "sl.array": {
+            "name": "sl.array",
+            "shortname": "sl.array",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\array\\array.js",
+            "line": 1,
+            "description": "array 类，数组扩展类",
+            "is_constructor": 1
+        },
         "sl.log": {
             "name": "sl.log",
             "shortname": "sl.log",
@@ -46,7 +68,7 @@
             "extension_for": [],
             "file": "..\\dev\\log\\log.js",
             "line": 1,
-            "description": "Log 类，用于打印信息，分为 debug, info, warnning, error 三类。",
+            "description": "log 类，用于打印信息，分为 debug, info, warnning, error 三类。",
             "is_constructor": 1
         },
         "sl.log_mode": {
@@ -77,6 +99,38 @@
         }
     },
     "classitems": [
+        {
+            "file": "..\\dev\\array\\array.js",
+            "line": 13,
+            "description": "需要处理的数组",
+            "itemtype": "property",
+            "name": "array",
+            "type": "{Array}",
+            "default": "[]",
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\array\\array.js",
+            "line": 21,
+            "description": "当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "指定的数组下标",
+                    "type": "Number"
+                }
+            ],
+            "itemtype": "method",
+            "name": "qRemove",
+            "example": [
+                " sl.array(arr).qRemove(1);"
+            ],
+            "return": {
+                "description": "删除某项后的数组",
+                "type": "Array"
+            },
+            "class": "sl.array"
+        },
         {
             "file": "..\\dev\\log\\log.js",
             "line": 11,
@@ -178,6 +232,28 @@
             "type": "{Number}",
             "default": "3",
             "class": "sl.log_mode"
+        },
+        {
+            "file": "..\\dev\\sl.js",
+            "line": 10,
+            "description": "获取参数类型",
+            "params": [
+                {
+                    "name": "需要判断类型的参数",
+                    "description": "",
+                    "type": "任意"
+                }
+            ],
+            "itemtype": "method",
+            "name": "getType",
+            "return": {
+                "description": "参数类型",
+                "type": "String"
+            },
+            "example": [
+                " sl.base.getType(\"mseeage\") 或 sl.base.getType([1, 2, 3]);"
+            ],
+            "class": "sl"
         }
     ],
     "warnings": []

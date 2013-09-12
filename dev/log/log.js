@@ -1,5 +1,5 @@
 /**
- * Log 类，用于打印信息，分为 debug, info, warnning, error 三类。
+ * log 类，用于打印信息，分为 debug, info, warnning, error 三类。
  * @class sl.log
  * @constructor
  */

@@ -26,7 +26,8 @@ config.projects = [{
         compression: [{
             dir: [
                 "sl.js", 
-                "log/"
+                "log/",
+                "array/"
             ],             
             outputFile: 'slib.pro.js'
         }],

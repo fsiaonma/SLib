@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\dev\sl.js - SLib 使用说明文档</title>
+    <title>..\dev\array\array.js - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -88,35 +88,59 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\dev\sl.js</h1>
+                        <h1 class="file-heading">File: ..\dev\array\array.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * SLib 类, 命名空间，最高层。
- *
- * @class sl
+ * array 类，数组扩展类
+ * @class sl.array
  * @constructor
  */
-var sl = SLib = {};
+ sl.array = (function() {
+ 	var o = {};
 
-sl.base = {
-	/**
-     * 获取参数类型
-     * @param {任意} 需要判断类型的参数
-     * @method getType
-     * @return {String} 参数类型
-     * @example sl.base.getType(&quot;mseeage&quot;) 或 sl.base.getType([1, 2, 3]);
+ 	var isArray = function(arr) {
+ 		return sl.base.getType(arr) == &quot;Array&quot;;
+ 	}
+
+ 	/**
+	 * 需要处理的数组
+	 * @property array
+	 * @type {Array}
+	 * @default []
+	 */
+ 	o.array = [];
+
+ 	/**
+     * 当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项
+     * @param {Number} index 指定的数组下标
+     * @method qRemove
+     * @example sl.array(arr).qRemove(1);
+	 * @return {Array} 删除某项后的数组
      */
-	getType: function(params) {
-		var type = Object.prototype.toString.call(this.params);
-		type = type.substring(type.indexOf(&#x27; &#x27;) + 1, type.indexOf(&quot;]&quot;));
-		if (type == undefined) {
-			console.log(&quot;[错误] getType 参数类型错误&quot;);
-		}
-		return type;
-	}
-}
+ 	o.qRemove = function(index) {
+ 		if (index &lt; 0 || index &gt;= o.array.length) {
+ 			console.log(&quot;[错误] qRemove 参数越界&quot;);
+ 		} else {
+ 			var end = o.array.length - 1;
+ 			var temp = o.array[index];
+ 			o.array[index] = o.array[end];
+ 			o.array[end] = temp;
+ 			o.array.pop();
+ 			return o.array;
+ 		}
+ 	}
+
+ 	return function(arr) {
+ 		if (!isArray(arr)) {
+ 			console.log(&quot;[错误] sl.array 参数类型错误&quot;);
+ 		} else {
+ 			o.array = arr;
+ 			return o;
+ 		}
+ 	};
+ })();
     </pre>
 </div>
 
