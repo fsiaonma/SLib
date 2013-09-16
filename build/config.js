@@ -25,9 +25,9 @@ config.projects = [{
     js: {         
         compression: [{
             dir: [
-                "sl.js", 
-                "log/",
-                "array/"
+                "sl.js",
+                "log/",  // 加载日志模块
+                "native_extend/" // 加载数组模块
             ],             
             outputFile: 'slib.pro.js'
         }],

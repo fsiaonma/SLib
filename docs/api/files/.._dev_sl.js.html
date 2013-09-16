@@ -41,6 +41,8 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
+                <li><a href="../classes/extendBase.html">extendBase</a></li>
+            
                 <li><a href="../classes/sl.html">sl</a></li>
             
                 <li><a href="../classes/sl.array.html">sl.array</a></li>
@@ -99,24 +101,6 @@
  * @constructor
  */
 var sl = SLib = {};
-
-sl.base = {
-	/**
-     * 获取参数类型
-     * @param {任意} 需要判断类型的参数
-     * @method getType
-     * @return {String} 参数类型
-     * @example sl.base.getType(&quot;mseeage&quot;) 或 sl.base.getType([1, 2, 3]);
-     */
-	getType: function(params) {
-		var type = Object.prototype.toString.call(this.params);
-		type = type.substring(type.indexOf(&#x27; &#x27;) + 1, type.indexOf(&quot;]&quot;));
-		if (type == undefined) {
-			console.log(&quot;[错误] getType 参数类型错误&quot;);
-		}
-		return type;
-	}
-}
     </pre>
 </div>
 

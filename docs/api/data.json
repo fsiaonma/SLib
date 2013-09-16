@@ -6,15 +6,6 @@
         "url": "https://github.com/fsiaonma/SLib"
     },
     "files": {
-        "..\\dev\\array\\array.js": {
-            "name": "..\\dev\\array\\array.js",
-            "modules": {},
-            "classes": {
-                "sl.array": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
         "..\\dev\\log\\log.js": {
             "name": "..\\dev\\log\\log.js",
             "modules": {},
@@ -33,6 +24,24 @@
             "fors": {},
             "namespaces": {}
         },
+        "..\\dev\\native_extend\\array\\array.js": {
+            "name": "..\\dev\\native_extend\\array\\array.js",
+            "modules": {},
+            "classes": {
+                "sl.array": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\dev\\native_extend\\extendBase.js": {
+            "name": "..\\dev\\native_extend\\extendBase.js",
+            "modules": {},
+            "classes": {
+                "extendBase": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\sl.js": {
             "name": "..\\dev\\sl.js",
             "modules": {},
@@ -45,19 +54,6 @@
     },
     "modules": {},
     "classes": {
-        "sl.array": {
-            "name": "sl.array",
-            "shortname": "sl.array",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "file": "..\\dev\\array\\array.js",
-            "line": 1,
-            "description": "array 类，数组扩展类",
-            "is_constructor": 1
-        },
         "sl.log": {
             "name": "sl.log",
             "shortname": "sl.log",
@@ -84,6 +80,32 @@
             "description": "log_mode 类，标记打印日志级别。",
             "is_constructor": 1
         },
+        "sl.array": {
+            "name": "sl.array",
+            "shortname": "sl.array",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 1,
+            "description": "array 类，数组扩展类",
+            "is_constructor": 1
+        },
+        "extendBase": {
+            "name": "extendBase",
+            "shortname": "extendBase",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\native_extend\\extendBase.js",
+            "line": 1,
+            "description": "extendBase 类, 原生接口扩展的基类",
+            "is_constructor": 1
+        },
         "sl": {
             "name": "sl",
             "shortname": "sl",
@@ -99,38 +121,6 @@
         }
     },
     "classitems": [
-        {
-            "file": "..\\dev\\array\\array.js",
-            "line": 13,
-            "description": "需要处理的数组",
-            "itemtype": "property",
-            "name": "array",
-            "type": "{Array}",
-            "default": "[]",
-            "class": "sl.array"
-        },
-        {
-            "file": "..\\dev\\array\\array.js",
-            "line": 21,
-            "description": "当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项",
-            "params": [
-                {
-                    "name": "index",
-                    "description": "指定的数组下标",
-                    "type": "Number"
-                }
-            ],
-            "itemtype": "method",
-            "name": "qRemove",
-            "example": [
-                " sl.array(arr).qRemove(1);"
-            ],
-            "return": {
-                "description": "删除某项后的数组",
-                "type": "Array"
-            },
-            "class": "sl.array"
-        },
         {
             "file": "..\\dev\\log\\log.js",
             "line": 11,
@@ -234,8 +224,106 @@
             "class": "sl.log_mode"
         },
         {
-            "file": "..\\dev\\sl.js",
-            "line": 10,
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 13,
+            "description": "需要处理的数组",
+            "itemtype": "property",
+            "name": "array",
+            "type": "{Array}",
+            "default": "[]",
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 21,
+            "description": "当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "指定的数组下标",
+                    "type": "Number"
+                }
+            ],
+            "itemtype": "method",
+            "name": "qRemoveByIndex",
+            "example": [
+                " sl.array(arr).qRemoveByIndex(1);"
+            ],
+            "return": {
+                "description": "删除某项后的数组",
+                "type": "Array"
+            },
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 41,
+            "description": "当数组有顺序要求时候，该方法能删除某一指定数组项而不改变数组顺序",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "指定的数组下标",
+                    "type": "Number"
+                }
+            ],
+            "itemtype": "method",
+            "name": "cRemoveByIndex",
+            "example": [
+                " sl.array(arr).cRemoveByIndex(1);"
+            ],
+            "return": {
+                "description": "删除某项后的数组",
+                "type": "Array"
+            },
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 60,
+            "description": "复制数组",
+            "itemtype": "method",
+            "name": "copy",
+            "example": [
+                " sl.array(arr).copy();"
+            ],
+            "return": {
+                "description": "复制后的数组",
+                "type": "Array"
+            },
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 74,
+            "description": "判断数组是否包含某一指定值",
+            "itemtype": "method",
+            "name": "isContain",
+            "example": [
+                " sl.array(arr).isContain(1);"
+            ],
+            "return": {
+                "description": "ture 表述数组包含该特定值，false 则不包含",
+                "type": "Bool"
+            },
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 84,
+            "description": "随即抽取一数组项",
+            "itemtype": "method",
+            "name": "random",
+            "example": [
+                " sl.array(arr).random();"
+            ],
+            "return": {
+                "description": "随即出来的数组项"
+            },
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\extendBase.js",
+            "line": 8,
             "description": "获取参数类型",
             "params": [
                 {
@@ -253,7 +341,7 @@
             "example": [
                 " sl.base.getType(\"mseeage\") 或 sl.base.getType([1, 2, 3]);"
             ],
-            "class": "sl"
+            "class": "extendBase"
         }
     ],
     "warnings": []

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\dev\array\array.js - SLib 使用说明文档</title>
+    <title>..\dev\native_extend\array\array.js - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -40,6 +40,8 @@
 
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/extendBase.html">extendBase</a></li>
             
                 <li><a href="../classes/sl.html">sl</a></li>
             
@@ -88,7 +90,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\dev\array\array.js</h1>
+                        <h1 class="file-heading">File: ..\dev\native_extend\array\array.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
@@ -97,11 +99,11 @@
  * @class sl.array
  * @constructor
  */
- sl.array = (function() {
- 	var o = {};
+sl.array = (function() {
+     var o = {};
 
  	var isArray = function(arr) {
- 		return sl.base.getType(arr) == &quot;Array&quot;;
+ 		return sl.extendBase.getType(arr) == &quot;Array&quot;;
  	}
 
  	/**
@@ -112,16 +114,16 @@
 	 */
  	o.array = [];
 
- 	/**
-     * 当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项
-     * @param {Number} index 指定的数组下标
-     * @method qRemove
-     * @example sl.array(arr).qRemove(1);
+     /**
+      * 当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项
+      * @param {Number} index 指定的数组下标
+      * @method qRemoveByIndex
+      * @example sl.array(arr).qRemoveByIndex(1);
 	 * @return {Array} 删除某项后的数组
-     */
- 	o.qRemove = function(index) {
+      */
+ 	o.qRemoveByIndex = function(index) {
  		if (index &lt; 0 || index &gt;= o.array.length) {
- 			console.log(&quot;[错误] qRemove 参数越界&quot;);
+ 			console.log(&quot;[错误] qRemoveByIndex 参数越界&quot;);
  		} else {
  			var end = o.array.length - 1;
  			var temp = o.array[index];
@@ -131,6 +133,60 @@
  			return o.array;
  		}
  	}
+
+     /**
+      * 当数组有顺序要求时候，该方法能删除某一指定数组项而不改变数组顺序
+      * @param {Number} index 指定的数组下标
+      * @method cRemoveByIndex
+      * @example sl.array(arr).cRemoveByIndex(1);
+	 * @return {Array} 删除某项后的数组
+      */
+ 	o.cRemoveByIndex = function(index) {
+ 		if (index &lt; 0 || index &gt;= o.array.length) {
+ 			console.log(&quot;[错误] cRemoveByIndex 参数越界&quot;);
+ 		} else {
+ 			for (var i = index; i &lt; this.array.length; ++i) {
+ 				o.array[i] = o.array[i + 1];
+ 			}
+ 			o.array.pop();
+ 		}
+ 		return o.array;
+ 	}
+
+     /**
+      * 复制数组
+      * @method copy
+      * @example sl.array(arr).copy();
+      * @return {Array} 复制后的数组
+      */
+     o.copy = function() {
+          var rst = [];
+          for (var i = 0, len = o.array.length; i &lt; len; ++i) {
+               rst.push(o.array[i]);
+          }
+          return rst;
+     }
+
+     /**
+      * 判断数组是否包含某一指定值
+      * @method isContain
+      * @example sl.array(arr).isContain(1);
+      * @return {bool} ture 表述数组包含该特定值，false 则不包含 
+      */
+     o.isContain = function(data) {
+          return o.array.indexOf(data) != 1;
+     }
+
+     /**
+      * 随即抽取一数组项
+      * @method random
+      * @example sl.array(arr).random();
+      * @return 随即出来的数组项
+      */
+     o.random = function() {
+          var index = Math.floor(Math.random() * o.array.length);
+          return o.array[index];
+     }
 
  	return function(arr) {
  		if (!isArray(arr)) {
