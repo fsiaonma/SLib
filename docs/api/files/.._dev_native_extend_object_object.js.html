@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\dev\native_extend\extendBase.js - SLib 使用说明文档</title>
+    <title>..\dev\native_extend\object\object.js - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -92,34 +92,112 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\dev\native_extend\extendBase.js</h1>
+                        <h1 class="file-heading">File: ..\dev\native_extend\object\object.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * extendBase 类, 原生接口扩展的基类
- *
- * @class extendBase
+ * object 类，对象扩展类
+ * @class sl.object
  * @constructor
  */
-sl.extendBase = {
-	/**
-	 * 获取参数类型
-	 * @param {任意} 需要判断类型的参数
-	 * @method getType
-	 * @return {String} 参数类型
-	 * @example sl.base.getType(&quot;mseeage&quot;) 或 sl.base.getType([1, 2, 3]);
-	 */
-	getType: function(params) {
-		var type = Object.prototype.toString.call(params);
-		type = type.substring(type.indexOf(&#x27; &#x27;) + 1, type.indexOf(&quot;]&quot;));
-		if (type == undefined) {
-			console.log(&quot;[错误] getType 参数类型错误&quot;);
-		}
-		return type;
-	}
-}
+sl.object = (function() {
+ 	var o = {};
 
+ 	var isObject = function(object) {
+ 		return sl.extendBase.getType(object) == &quot;Object&quot;;
+ 	}
+
+ 	/**
+	 * 需要处理的对象
+	 * @property object
+	 * @type {object}
+	 * @default {}
+	 */
+ 	o.object = {};
+
+ 	/**
+     * 比较 2 个对象是否相等
+     * @param {Object} obj 需要比较的对象
+     * @method equal
+     * @example sl.object(object).equal(obj);
+     * @return {bool} ture 表述2对象相等，false 则不相等
+     */
+ 	o.equalsTo = function(obj) {
+ 		var flag = false;
+ 		return flag;
+ 	}
+
+ 	/**
+     * 判断对象是否包含某一指定值
+     * @param {String} data 需要判断的键值
+     * @method isContain
+     * @example sl.object(object).isContain(1);
+     * @return {bool} ture 表述对象包含该特定值，false 则不包含 
+     */
+    o.isContain = function(data) {
+    	var flag = false;
+    	for (var i in o.object) {
+    		if (i == data) {
+    			flag = true;
+    		}
+    	}
+        return flag;
+    }
+
+ 	/**
+	 * 转换成字符串
+	 * @method toString
+     * @example sl.object(object).toString();
+     * @return {String} 转换后的字符串
+	 */
+ 	o.toString = function() {
+ 		var str = &quot;{&quot;;
+ 		for (var i in o.object) {
+ 			var type = sl.extendBase.getType(o.object[i]);
+ 			if (type == &quot;Object&quot;) {
+ 				str += sl.object(o.object[i]).toString();
+ 			} else if (type == &quot;Array&quot;) {
+ 				str += sl.array(o.object[i]).toString();
+ 			} else {
+ 				str += i + &quot;:&quot; + o.object[i];
+ 			}
+ 			str += &quot;, &quot;;
+ 		}
+ 		str.length &gt; 1? str = str.substr(0, str.lastIndexOf(&quot;,&quot;)) + &quot;}&quot; : str += &quot;}&quot;;
+ 		return str;
+ 	};
+
+ 	/**
+     * 复制对象
+     * @method clone
+     * @example sl.object(object).clone();
+     * @return {Object} 复制后的对象
+     */
+    o.clone = function() {
+        var rst = {};
+        for (var i in o.object) {
+            var type = sl.extendBase.getType(o.object[i]);
+            if (type == &quot;Object&quot;) {
+                rst[i] = sl.object(o.object[i]).clone();
+            } else if (type == &quot;Array&quot;) {
+                rst[i] = sl.array(o.object[i]).clone();
+            } else {
+                rst[i] = o.object[i];
+            }
+        };
+        return rst;
+    }
+
+ 	return function(object) {
+ 		if (!isObject(object)) {
+ 			console.log(&quot;[错误] sl.object 参数类型错误&quot;);
+ 		} else {
+ 			o.object = object;
+ 			return o;
+ 		}
+ 	};
+ })();
     </pre>
 </div>
 

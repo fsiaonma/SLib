@@ -5,7 +5,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "sl",
         "sl.array",
         "sl.log",
-        "sl.log_mode"
+        "sl.log_mode",
+        "sl.object"
     ],
     "modules": [],
     "allModules": []

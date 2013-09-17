@@ -33,6 +33,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "..\\dev\\native_extend\\object\\object.js": {
+            "name": "..\\dev\\native_extend\\object\\object.js",
+            "modules": {},
+            "classes": {
+                "sl.object": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\native_extend\\extendBase.js": {
             "name": "..\\dev\\native_extend\\extendBase.js",
             "modules": {},
@@ -91,6 +100,19 @@
             "file": "..\\dev\\native_extend\\array\\array.js",
             "line": 1,
             "description": "array 类，数组扩展类",
+            "is_constructor": 1
+        },
+        "sl.object": {
+            "name": "sl.object",
+            "shortname": "sl.object",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\native_extend\\object\\object.js",
+            "line": 1,
+            "description": "object 类，对象扩展类",
             "is_constructor": 1
         },
         "extendBase": {
@@ -280,22 +302,27 @@
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
             "line": 60,
-            "description": "复制数组",
+            "description": "随即抽取一数组项",
             "itemtype": "method",
-            "name": "copy",
+            "name": "random",
             "example": [
-                " sl.array(arr).copy();"
+                " sl.array(arr).random();"
             ],
             "return": {
-                "description": "复制后的数组",
-                "type": "Array"
+                "description": "随即出来的数组项"
             },
             "class": "sl.array"
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 74,
+            "line": 71,
             "description": "判断数组是否包含某一指定值",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "需要判断的键值"
+                }
+            ],
             "itemtype": "method",
             "name": "isContain",
             "example": [
@@ -309,17 +336,117 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 84,
-            "description": "随即抽取一数组项",
+            "line": 82,
+            "description": "转换成字符串",
             "itemtype": "method",
-            "name": "random",
+            "name": "toString",
             "example": [
-                " sl.array(arr).random();"
+                " sl.array(arr).toString();"
             ],
             "return": {
-                "description": "随即出来的数组项"
+                "description": "转换后的字符串",
+                "type": "String"
             },
             "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 105,
+            "description": "复制数组",
+            "itemtype": "method",
+            "name": "copy",
+            "example": [
+                " sl.array(arr).copy();"
+            ],
+            "return": {
+                "description": "复制后的数组",
+                "type": "Array"
+            },
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\object\\object.js",
+            "line": 13,
+            "description": "需要处理的对象",
+            "itemtype": "property",
+            "name": "object",
+            "type": "{object}",
+            "default": "{}",
+            "class": "sl.object"
+        },
+        {
+            "file": "..\\dev\\native_extend\\object\\object.js",
+            "line": 21,
+            "description": "比较 2 个对象是否相等",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "需要比较的对象",
+                    "type": "Object"
+                }
+            ],
+            "itemtype": "method",
+            "name": "equal",
+            "example": [
+                " sl.object(object).equal(obj);"
+            ],
+            "return": {
+                "description": "ture 表述2对象相等，false 则不相等",
+                "type": "Bool"
+            },
+            "class": "sl.object"
+        },
+        {
+            "file": "..\\dev\\native_extend\\object\\object.js",
+            "line": 33,
+            "description": "判断对象是否包含某一指定值",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "需要判断的键值",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "isContain",
+            "example": [
+                " sl.object(object).isContain(1);"
+            ],
+            "return": {
+                "description": "ture 表述对象包含该特定值，false 则不包含",
+                "type": "Bool"
+            },
+            "class": "sl.object"
+        },
+        {
+            "file": "..\\dev\\native_extend\\object\\object.js",
+            "line": 50,
+            "description": "转换成字符串",
+            "itemtype": "method",
+            "name": "toString",
+            "example": [
+                " sl.object(object).toString();"
+            ],
+            "return": {
+                "description": "转换后的字符串",
+                "type": "String"
+            },
+            "class": "sl.object"
+        },
+        {
+            "file": "..\\dev\\native_extend\\object\\object.js",
+            "line": 73,
+            "description": "复制对象",
+            "itemtype": "method",
+            "name": "clone",
+            "example": [
+                " sl.object(object).clone();"
+            ],
+            "return": {
+                "description": "复制后的对象",
+                "type": "Object"
+            },
+            "class": "sl.object"
         },
         {
             "file": "..\\dev\\native_extend\\extendBase.js",

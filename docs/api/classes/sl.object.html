@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>sl.array - SLib 使用说明文档</title>
+    <title>sl.object - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -92,7 +92,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>sl.array Class</h1>
+                        <h1>sl.object Class</h1>
 <div class="box meta">
     
 
@@ -100,7 +100,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/.._dev_native_extend_array_array.js.html#l1"><code>..\dev\native_extend\array\array.js:1</code></a>
+            Defined in: <a href="../files/.._dev_native_extend_object_object.js.html#l1"><code>..\dev\native_extend\object\object.js:1</code></a>
         </div>
     
 
@@ -112,15 +112,15 @@
 
 
 <div class="box intro">
-    <p>array 类，数组扩展类</p>
+    <p>object 类，对象扩展类</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_sl.array" class="method item">
-    <h3 class="name"><code>sl.array</code></h3>
+        <div id="method_sl.object" class="method item">
+    <h3 class="name"><code>sl.object</code></h3>
 
     
         <span class="paren">()</span>
@@ -151,7 +151,7 @@
             
         
         
-        <a href="../files/.._dev_native_extend_array_array.js.html#l1"><code>..\dev\native_extend\array\array.js:1</code></a>
+        <a href="../files/.._dev_native_extend_object_object.js.html#l1"><code>..\dev\native_extend\object\object.js:1</code></a>
         
         </p>
 
@@ -200,14 +200,14 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_copy">copy</a>
+                                <a href="#method_clone">clone</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_cRemoveByIndex">cRemoveByIndex</a>
+                                <a href="#method_equal">equal</a>
 
                                 
                                 
@@ -215,20 +215,6 @@
                         
                             <li class="index-item method">
                                 <a href="#method_isContain">isContain</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_qRemoveByIndex">qRemoveByIndex</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_random">random</a>
 
                                 
                                 
@@ -252,7 +238,7 @@
                     <ul class="index-list properties">
                         
                             <li class="index-item property">
-                                <a href="#property_array">array</a>
+                                <a href="#property_object">object</a>
 
                                 
                                 
@@ -272,8 +258,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_copy" class="method item">
-    <h3 class="name"><code>copy</code></h3>
+                    <div id="method_clone" class="method item">
+    <h3 class="name"><code>clone</code></h3>
 
     
         <span class="paren">()</span>
@@ -281,7 +267,7 @@
 
     
         <span class="returns-inline">
-            <span class="type">Array</span>
+            <span class="type">Object</span>
         </span>
     
 
@@ -308,7 +294,7 @@
             
         
         
-        <a href="../files/.._dev_native_extend_array_array.js.html#l105"><code>..\dev\native_extend\array\array.js:105</code></a>
+        <a href="../files/.._dev_native_extend_object_object.js.html#l73"><code>..\dev\native_extend\object\object.js:73</code></a>
         
         </p>
 
@@ -319,7 +305,7 @@
     </div>
 
     <div class="description">
-        <p>复制数组</p>
+        <p>复制对象</p>
 
     </div>
 
@@ -332,9 +318,9 @@
             <div class="returns-description">
                 
                     
-                        <span class="type">Array</span>:
+                        <span class="type">Object</span>:
                     
-                    <p>复制后的数组</p>
+                    <p>复制后的对象</p>
 
                 
             </div>
@@ -346,7 +332,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.array(arr).copy();</p>
+                <p> sl.object(object).clone();</p>
 
             </div>
         </div>
@@ -354,8 +340,8 @@
 </div>
 
                 
-                    <div id="method_cRemoveByIndex" class="method item">
-    <h3 class="name"><code>cRemoveByIndex</code></h3>
+                    <div id="method_equal" class="method item">
+    <h3 class="name"><code>equal</code></h3>
 
     
         <div class="args">
@@ -363,7 +349,7 @@
             
                 <li class="arg">
                     
-                        <code>index</code>
+                        <code>obj</code>
                     
                 </li>
             
@@ -373,7 +359,7 @@
 
     
         <span class="returns-inline">
-            <span class="type">Array</span>
+            <span class="type">Bool</span>
         </span>
     
 
@@ -400,7 +386,7 @@
             
         
         
-        <a href="../files/.._dev_native_extend_array_array.js.html#l41"><code>..\dev\native_extend\array\array.js:41</code></a>
+        <a href="../files/.._dev_native_extend_object_object.js.html#l21"><code>..\dev\native_extend\object\object.js:21</code></a>
         
         </p>
 
@@ -411,7 +397,7 @@
     </div>
 
     <div class="description">
-        <p>当数组有顺序要求时候，该方法能删除某一指定数组项而不改变数组顺序</p>
+        <p>比较 2 个对象是否相等</p>
 
     </div>
 
@@ -423,14 +409,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">index</code>
-                        <span class="type">Number</span>
+                        <code class="param-name">obj</code>
+                        <span class="type">Object</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>指定的数组下标</p>
+                        <p>需要比较的对象</p>
 
                     </div>
 
@@ -448,9 +434,9 @@
             <div class="returns-description">
                 
                     
-                        <span class="type">Array</span>:
+                        <span class="type">Bool</span>:
                     
-                    <p>删除某项后的数组</p>
+                    <p>ture 表述2对象相等，false 则不相等</p>
 
                 
             </div>
@@ -462,7 +448,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.array(arr).cRemoveByIndex(1);</p>
+                <p> sl.object(object).equal(obj);</p>
 
             </div>
         </div>
@@ -516,7 +502,7 @@
             
         
         
-        <a href="../files/.._dev_native_extend_array_array.js.html#l71"><code>..\dev\native_extend\array\array.js:71</code></a>
+        <a href="../files/.._dev_native_extend_object_object.js.html#l33"><code>..\dev\native_extend\object\object.js:33</code></a>
         
         </p>
 
@@ -527,7 +513,7 @@
     </div>
 
     <div class="description">
-        <p>判断数组是否包含某一指定值</p>
+        <p>判断对象是否包含某一指定值</p>
 
     </div>
 
@@ -540,7 +526,7 @@
                 <li class="param">
                     
                         <code class="param-name">data</code>
-                        <span class="type">Object</span>
+                        <span class="type">String</span>
                     
 
                     
@@ -566,7 +552,7 @@
                     
                         <span class="type">Bool</span>:
                     
-                    <p>ture 表述数组包含该特定值，false 则不包含</p>
+                    <p>ture 表述对象包含该特定值，false 则不包含</p>
 
                 
             </div>
@@ -578,203 +564,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.array(arr).isContain(1);</p>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_qRemoveByIndex" class="method item">
-    <h3 class="name"><code>qRemoveByIndex</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>index</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">Array</span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/.._dev_native_extend_array_array.js.html#l21"><code>..\dev\native_extend\array\array.js:21</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">index</code>
-                        <span class="type">Number</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>指定的数组下标</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">Array</span>:
-                    
-                    <p>删除某项后的数组</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <p> sl.array(arr).qRemoveByIndex(1);</p>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_random" class="method item">
-    <h3 class="name"><code>random</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/.._dev_native_extend_array_array.js.html#l60"><code>..\dev\native_extend\array\array.js:60</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>随即抽取一数组项</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>随即出来的数组项</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <p> sl.array(arr).random();</p>
+                <p> sl.object(object).isContain(1);</p>
 
             </div>
         </div>
@@ -818,7 +608,7 @@
             
         
         
-        <a href="../files/.._dev_native_extend_array_array.js.html#l82"><code>..\dev\native_extend\array\array.js:82</code></a>
+        <a href="../files/.._dev_native_extend_object_object.js.html#l50"><code>..\dev\native_extend\object\object.js:50</code></a>
         
         </p>
 
@@ -856,7 +646,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.array(arr).toString();</p>
+                <p> sl.object(object).toString();</p>
 
             </div>
         </div>
@@ -872,9 +662,9 @@
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property_array" class="property item">
-    <h3 class="name"><code>array</code></h3>
-    <span class="type">Array</span>
+                    <div id="property_object" class="property item">
+    <h3 class="name"><code>object</code></h3>
+    <span class="type">Object</span>
 
     
 
@@ -895,7 +685,7 @@
             
         
         
-        <a href="../files/.._dev_native_extend_array_array.js.html#l13"><code>..\dev\native_extend\array\array.js:13</code></a>
+        <a href="../files/.._dev_native_extend_object_object.js.html#l13"><code>..\dev\native_extend\object\object.js:13</code></a>
         
         </p>
 
@@ -905,12 +695,12 @@
     </div>
 
     <div class="description">
-        <p>需要处理的数组</p>
+        <p>需要处理的对象</p>
 
     </div>
 
     
-        <p><strong>Default:</strong> []</p>
+        <p><strong>Default:</strong> {}</p>
     
 
     
