@@ -6,6 +6,17 @@
  */
 sl.extendBase = {
 	/**
+	 * 配置对象
+	 * @property Config
+	 * @type {object}
+	 */
+	Config: {
+		Object: "Object",
+		Array: "Array",
+		String: "String"
+	},
+
+	/**
 	 * 获取参数类型
 	 * @param {任意} 需要判断类型的参数
 	 * @method getType
