@@ -193,7 +193,7 @@ sl.eagleMysql = (function() {
 
     /**
      * 与数据库断开链接
-     * @method connet
+     * @method disconnet
      */
     o.disconnet = function () {
         this.client.end();
@@ -202,7 +202,7 @@ sl.eagleMysql = (function() {
 
     /**
      * 数据库操作通用回调函数
-     * @method connet
+     * @method _doCallback
      * @private
      */
     o._doCallback = function (err, results, fields, callback) {

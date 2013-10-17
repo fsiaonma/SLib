@@ -294,7 +294,7 @@
             "line": 194,
             "description": "与数据库断开链接",
             "itemtype": "method",
-            "name": "connet",
+            "name": "disconnet",
             "class": "sl.eagleMysql"
         },
         {
@@ -302,7 +302,7 @@
             "line": 203,
             "description": "数据库操作通用回调函数",
             "itemtype": "method",
-            "name": "connet",
+            "name": "_doCallback",
             "access": "private",
             "tagname": "",
             "class": "sl.eagleMysql"
