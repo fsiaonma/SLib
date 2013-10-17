@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>sl.log - SLib 使用说明文档</title>
+    <title>sl.sqlCondition - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -96,7 +96,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>sl.log Class</h1>
+                        <h1>sl.sqlCondition Class</h1>
 <div class="box meta">
     
 
@@ -104,7 +104,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/.._dev_log_log.js.html#l1"><code>..\dev\log\log.js:1</code></a>
+            Defined in: <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l1"><code>..\dev\eagleMysql\sqlCondition.js:1</code></a>
         </div>
     
 
@@ -116,15 +116,15 @@
 
 
 <div class="box intro">
-    <p>log 类，用于打印信息，分为 debug, info, warnning, error 三类。</p>
+    <p>sqlCondition 类，用于描述 sql 条件</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_sl.log" class="method item">
-    <h3 class="name"><code>sl.log</code></h3>
+        <div id="method_sl.sqlCondition" class="method item">
+    <h3 class="name"><code>sl.sqlCondition</code></h3>
 
     
         <span class="paren">()</span>
@@ -155,7 +155,7 @@
             
         
         
-        <a href="../files/.._dev_log_log.js.html#l1"><code>..\dev\log\log.js:1</code></a>
+        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l1"><code>..\dev\eagleMysql\sqlCondition.js:1</code></a>
         
         </p>
 
@@ -202,35 +202,28 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_debug">debug</a>
+                                <a href="#method_and">and</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_error">error</a>
+                                <a href="#method_getSql">getSql</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_info">info</a>
+                                <a href="#method_or">or</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_setMode">setMode</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_warnning">warnning</a>
+                                <a href="#method_where">where</a>
 
                                 
                                 
@@ -252,13 +245,17 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_debug" class="method item">
-    <h3 class="name"><code>debug</code></h3>
+                    <div id="method_and" class="method item">
+    <h3 class="name"><code>and</code></h3>
 
     
         <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
     
 
     
@@ -284,7 +281,7 @@
             
         
         
-        <a href="../files/.._dev_log_log.js.html#l11"><code>..\dev\log\log.js:11</code></a>
+        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l20"><code>..\dev\eagleMysql\sqlCondition.js:20</code></a>
         
         </p>
 
@@ -295,12 +292,24 @@
     </div>
 
     <div class="description">
-        <p>打印调试信息</p>
+        <p>and 条件</p>
 
     </div>
 
     
 
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>sl.sqlCondition 实例</p>
+
+                
+            </div>
+        </div>
     
 
     
@@ -308,7 +317,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.log.d(&quot;mseeage&quot;) 或 sl.log.debug(&quot;mseeage&quot;);</p>
+                <p> sl.sqlCondition.and(&quot;1=1&quot;);</p>
 
             </div>
         </div>
@@ -316,13 +325,17 @@
 </div>
 
                 
-                    <div id="method_error" class="method item">
-    <h3 class="name"><code>error</code></h3>
+                    <div id="method_getSql" class="method item">
+    <h3 class="name"><code>getSql</code></h3>
 
     
         <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
     
 
     
@@ -348,7 +361,7 @@
             
         
         
-        <a href="../files/.._dev_log_log.js.html#l44"><code>..\dev\log\log.js:44</code></a>
+        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l42"><code>..\dev\eagleMysql\sqlCondition.js:42</code></a>
         
         </p>
 
@@ -359,12 +372,24 @@
     </div>
 
     <div class="description">
-        <p>打印错误信息</p>
+        <p>getSql 方法，获取拼接后的 sql 语句</p>
 
     </div>
 
     
 
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>拼接后的 sql 语句</p>
+
+                
+            </div>
+        </div>
     
 
     
@@ -372,7 +397,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.log.e(&quot;mseeage&quot;) 或 sl.log.error(&quot;message&quot;);</p>
+                <p> sl.sqlCondition.where(&quot;1=1&quot;).getSql();</p>
 
             </div>
         </div>
@@ -380,13 +405,17 @@
 </div>
 
                 
-                    <div id="method_info" class="method item">
-    <h3 class="name"><code>info</code></h3>
+                    <div id="method_or" class="method item">
+    <h3 class="name"><code>or</code></h3>
 
     
         <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
     
 
     
@@ -412,7 +441,7 @@
             
         
         
-        <a href="../files/.._dev_log_log.js.html#l22"><code>..\dev\log\log.js:22</code></a>
+        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l31"><code>..\dev\eagleMysql\sqlCondition.js:31</code></a>
         
         </p>
 
@@ -423,12 +452,24 @@
     </div>
 
     <div class="description">
-        <p>打印日志信息</p>
+        <p>or 条件</p>
 
     </div>
 
     
 
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>sl.sqlCondition 实例</p>
+
+                
+            </div>
+        </div>
     
 
     
@@ -436,7 +477,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.log.i(&quot;mseeage&quot;) 或 sl.log.info(&quot;mseeage&quot;);</p>
+                <p> sl.sqlCondition.or(&quot;1=1&quot;);</p>
 
             </div>
         </div>
@@ -444,119 +485,18 @@
 </div>
 
                 
-                    <div id="method_setMode" class="method item">
-    <h3 class="name"><code>setMode</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>type</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/.._dev_log_log.js.html#l55"><code>..\dev\log\log.js:55</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>设置打印日志级别，提供给开发者打印等级选择。</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">type</code>
-                        <span class="type">Number</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>打印级别，可选项:</p>
-<p><ul>
-        <li> sl.log_mode.DEBUG </li>
-        <li> sl.log_mode.INFO </li>
-     <li> sl.log_mode.WARN </li>
-     <li> sl.log_mode.ERROR </li>
-</ul> <br />
-详情参见 <a href="..\classes\sl.log_mode.html" class="crosslink">sl.log_mode</a>。</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <p> sl.log.setMode(sl.log_mode.DEBUG); 或 sl.log.setMode(sl.log_mode.INFO);</p>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_warnning" class="method item">
-    <h3 class="name"><code>warnning</code></h3>
+                    <div id="method_where" class="method item">
+    <h3 class="name"><code>where</code></h3>
 
     
         <span class="paren">()</span>
     
 
     
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
 
     
 
@@ -581,7 +521,7 @@
             
         
         
-        <a href="../files/.._dev_log_log.js.html#l33"><code>..\dev\log\log.js:33</code></a>
+        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l9"><code>..\dev\eagleMysql\sqlCondition.js:9</code></a>
         
         </p>
 
@@ -592,12 +532,24 @@
     </div>
 
     <div class="description">
-        <p>打印警告信息</p>
+        <p>where 条件</p>
 
     </div>
 
     
 
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>sl.sqlCondition 实例</p>
+
+                
+            </div>
+        </div>
     
 
     
@@ -605,7 +557,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p> sl.log.w(&quot;mseeage&quot;) 或 sl.log.warnning(&quot;message&quot;);</p>
+                <p> sl.sqlCondition.where(&quot;1=1&quot;);</p>
 
             </div>
         </div>

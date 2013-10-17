@@ -6,6 +6,24 @@
         "url": "https://github.com/fsiaonma/SLib"
     },
     "files": {
+        "..\\dev\\eagleMysql\\eagleMysql.js": {
+            "name": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "modules": {},
+            "classes": {
+                "sl.eagleMysql": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\dev\\eagleMysql\\sqlCondition.js": {
+            "name": "..\\dev\\eagleMysql\\sqlCondition.js",
+            "modules": {},
+            "classes": {
+                "sl.sqlCondition": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\log\\log.js": {
             "name": "..\\dev\\log\\log.js",
             "modules": {},
@@ -63,6 +81,32 @@
     },
     "modules": {},
     "classes": {
+        "sl.eagleMysql": {
+            "name": "sl.eagleMysql",
+            "shortname": "sl.eagleMysql",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 1,
+            "description": "eagleMysql 类，mysql 数据库适配器。",
+            "is_constructor": 1
+        },
+        "sl.sqlCondition": {
+            "name": "sl.sqlCondition",
+            "shortname": "sl.sqlCondition",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\eagleMysql\\sqlCondition.js",
+            "line": 1,
+            "description": "sqlCondition 类，用于描述 sql 条件",
+            "is_constructor": 1
+        },
         "sl.log": {
             "name": "sl.log",
             "shortname": "sl.log",
@@ -143,6 +187,182 @@
         }
     },
     "classitems": [
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 13,
+            "description": "构造函数，初始化 eagleMysql 类。",
+            "parmas": "{Object} config mysql数据库配置，包括账号，密码，url，库名等。",
+            "itemtype": "method",
+            "name": "init",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 23,
+            "description": "建表",
+            "parmas": "{Array} tables 表名数组",
+            "itemtype": "method",
+            "name": "createTables",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 42,
+            "description": "往表中插入数据",
+            "parmas": "{Array} params 插入操作的相关数据，包括表名，键值等",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                " var sqlCondtion = new SqlCondition();   <br/>\nvar insertParams = {                             <br/>\n    table  : 'T_TEST_USER',                      <br/>\n    keys   : ['USERNAME'],                       <br/>\n    values : ['testName']                        <br/>\n};                                               <br/>\neagleMysql.insert(insertParams, {                <br/>\n    success : function (data) {                  <br/>\n        console.log('success');                  <br/>\n    },                                           <br/>\n    error : function (err) {                     <br/>\n        console.log(err);                        <br/>\n    }                                            <br/>\n});                                              <br/>"
+            ],
+            "itemtype": "method",
+            "name": "insert",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 77,
+            "description": "删除表中指定数据",
+            "parmas": "{Array} params 删除操作的相关数据，包括表名，条件等。",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                " var sqlCondtion = new SqlCondition();                       <br />\n var delParams = {                                                   <br />\n     table      : 'T_TEST_USER',                                     <br />\n     conditions : sqlCondtion.where(\"USERNAME = 'testName'\").getSql()<br />\n };                                                                  <br />\n eagleMysql.delete(delParams, {                                      <br />\n     success : function (data) {                                     <br />\n         console.log('success');                                     <br />\n     },                                                              <br />\n     error : function (err) {                                        <br />\n         console.log(err)                                            <br />\n     },                                                              <br />\n });                                                                 <br />"
+            ],
+            "itemtype": "method",
+            "name": "delete",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 107,
+            "description": "更新表中指定数据",
+            "parmas": "{Array} params 更新操作的相关数据，包括表名，条件等。",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                " var sqlCondtion = new SqlCondition();                           <br />\n var updateParams = {                                                    <br />\n     table  : 'T_TEST_USER',\n     keys   : ['USERNAME'],                                              <br />\n     values : ['updateName'],                                            <br />\n     conditions : sqlCondtion.where(\"USERNAME = 'testName'\").getSql()    <br />\n };                                                                      <br />\n eagleMysql.update(updateParams, {                                       <br />\n     success : function (data) {                                         <br />\n         console.log('success');                                         <br />\n     },                                                                  <br />\n     error : function (err) {                                            <br />\n         console.log(err);                                               <br />\n     }                                                                   <br />\n });                                                                     <br />"
+            ],
+            "itemtype": "method",
+            "name": "update",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 143,
+            "description": "检索表中指定数据",
+            "parmas": "{Array} params 更新操作的相关数据，包括表名，条件等。",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                " var sqlCondtion = new SqlCondition();                                   <br />\nvar selParams = {                                                                <br />\n    keys       : ['USERNAME'],                                                   <br />\n    table      : 'T_TEST_USER',                                                  <br />\n    conditions : sqlCondtion.where(\"USERNAME = 'updateName'\").and('1=1').getSql()<br />\n};                                                                               <br />\neagleMysql.select(selParams, {                                                   <br />\n    success : function (data) {                                                  <br />\n        console.log('success');                                                  <br />\n    },                                                                           <br />\n    error : function (err) {                                                     <br />\n        console.log(err)                                                         <br />\n    },                                                                           <br />\n});                                                                              <br />"
+            ],
+            "itemtype": "method",
+            "name": "select",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 178,
+            "description": "链接数据库",
+            "itemtype": "method",
+            "name": "connet",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 194,
+            "description": "与数据库断开链接",
+            "itemtype": "method",
+            "name": "connet",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 203,
+            "description": "数据库操作通用回调函数",
+            "itemtype": "method",
+            "name": "connet",
+            "access": "private",
+            "tagname": "",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\sqlCondition.js",
+            "line": 9,
+            "description": "where 条件",
+            "itemtype": "method",
+            "name": "where",
+            "example": [
+                " sl.sqlCondition.where(\"1=1\");"
+            ],
+            "return": {
+                "description": "sl.sqlCondition 实例"
+            },
+            "class": "sl.sqlCondition"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\sqlCondition.js",
+            "line": 20,
+            "description": "and 条件",
+            "itemtype": "method",
+            "name": "and",
+            "example": [
+                " sl.sqlCondition.and(\"1=1\");"
+            ],
+            "return": {
+                "description": "sl.sqlCondition 实例"
+            },
+            "class": "sl.sqlCondition"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\sqlCondition.js",
+            "line": 31,
+            "description": "or 条件",
+            "itemtype": "method",
+            "name": "or",
+            "example": [
+                " sl.sqlCondition.or(\"1=1\");"
+            ],
+            "return": {
+                "description": "sl.sqlCondition 实例"
+            },
+            "class": "sl.sqlCondition"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\sqlCondition.js",
+            "line": 42,
+            "description": "getSql 方法，获取拼接后的 sql 语句",
+            "itemtype": "method",
+            "name": "getSql",
+            "example": [
+                " sl.sqlCondition.where(\"1=1\").getSql();"
+            ],
+            "return": {
+                "description": "拼接后的 sql 语句"
+            },
+            "class": "sl.sqlCondition"
+        },
         {
             "file": "..\\dev\\log\\log.js",
             "line": 11,
@@ -247,7 +467,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 13,
+            "line": 8,
             "description": "需要处理的数组",
             "itemtype": "property",
             "name": "array",
@@ -257,7 +477,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 21,
+            "line": 18,
             "description": "当数组没有顺序要求时候，该方法能快速删除某一指定下标的数组项",
             "params": [
                 {
@@ -279,7 +499,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 41,
+            "line": 38,
             "description": "当数组有顺序要求时候，该方法能删除某一指定数组项而不改变数组顺序",
             "params": [
                 {
@@ -301,7 +521,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 60,
+            "line": 57,
             "description": "随即抽取一数组项",
             "itemtype": "method",
             "name": "random",
@@ -315,7 +535,29 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 71,
+            "line": 68,
+            "description": "比较 2 个数组是否相等",
+            "params": [
+                {
+                    "name": "arr",
+                    "description": "需要比较的数组",
+                    "type": "Array"
+                }
+            ],
+            "itemtype": "method",
+            "name": "equalsTo",
+            "example": [
+                " sl.array(arr1).equalsTo(arr2);"
+            ],
+            "return": {
+                "description": "ture 表述2数组相等，false 则不相等",
+                "type": "Bool"
+            },
+            "class": "sl.array"
+        },
+        {
+            "file": "..\\dev\\native_extend\\array\\array.js",
+            "line": 98,
             "description": "判断数组是否包含某一指定值",
             "params": [
                 {
@@ -336,7 +578,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 82,
+            "line": 127,
             "description": "转换成字符串",
             "itemtype": "method",
             "name": "toString",
@@ -351,7 +593,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 105,
+            "line": 150,
             "description": "复制数组",
             "itemtype": "method",
             "name": "copy",
@@ -366,7 +608,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\object\\object.js",
-            "line": 13,
+            "line": 8,
             "description": "需要处理的对象",
             "itemtype": "property",
             "name": "object",
@@ -376,7 +618,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\object\\object.js",
-            "line": 21,
+            "line": 18,
             "description": "比较 2 个对象是否相等",
             "params": [
                 {
@@ -386,9 +628,9 @@
                 }
             ],
             "itemtype": "method",
-            "name": "equal",
+            "name": "equalsTo",
             "example": [
-                " sl.object(object).equal(obj);"
+                " sl.object(obj1).equalsTo(obj2);"
             ],
             "return": {
                 "description": "ture 表述2对象相等，false 则不相等",
@@ -398,7 +640,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\object\\object.js",
-            "line": 33,
+            "line": 46,
             "description": "判断对象是否包含某一指定值",
             "params": [
                 {
@@ -420,7 +662,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\object\\object.js",
-            "line": 50,
+            "line": 63,
             "description": "转换成字符串",
             "itemtype": "method",
             "name": "toString",
@@ -435,7 +677,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\object\\object.js",
-            "line": 73,
+            "line": 86,
             "description": "复制对象",
             "itemtype": "method",
             "name": "clone",
@@ -451,6 +693,15 @@
         {
             "file": "..\\dev\\native_extend\\extendBase.js",
             "line": 8,
+            "description": "配置对象",
+            "itemtype": "property",
+            "name": "Config",
+            "type": "{object}",
+            "class": "extendBase"
+        },
+        {
+            "file": "..\\dev\\native_extend\\extendBase.js",
+            "line": 19,
             "description": "获取参数类型",
             "params": [
                 {
@@ -471,5 +722,46 @@
             "class": "extendBase"
         }
     ],
-    "warnings": []
+    "warnings": [
+        {
+            "message": "unknown tag: parmas",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:13"
+        },
+        {
+            "message": "unknown tag: parmas",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:23"
+        },
+        {
+            "message": "unknown tag: parmas",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:42"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:42"
+        },
+        {
+            "message": "unknown tag: parmas",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:77"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:77"
+        },
+        {
+            "message": "unknown tag: parmas",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:107"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:107"
+        },
+        {
+            "message": "unknown tag: parmas",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:143"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:143"
+        }
+    ]
 }

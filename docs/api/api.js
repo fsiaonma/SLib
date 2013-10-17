@@ -4,9 +4,11 @@ YUI.add("yuidoc-meta", function(Y) {
         "extendBase",
         "sl",
         "sl.array",
+        "sl.eagleMysql",
         "sl.log",
         "sl.log_mode",
-        "sl.object"
+        "sl.object",
+        "sl.sqlCondition"
     ],
     "modules": [],
     "allModules": []
