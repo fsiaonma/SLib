@@ -26,8 +26,6 @@ config.projects = [{
         compression: [{
             dir: [
                 "sl.js",
-                "log/",  // 加载日志模块
-                "native_extend/", // 加载数组模块
                 "eagleMysql/" // 加载 eagleMysql 模块
             ],             
             outputFile: 'slib.pro.js'

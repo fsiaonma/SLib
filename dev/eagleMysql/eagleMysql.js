@@ -11,11 +11,22 @@ sl.eagleMysql = (function() {
     var o = {};
 
     /**
+     * 是否输出调试信息
+     * @property debug
+     * @type bool
+     */
+    o.debug = false;
+
+    /**
      * 构造函数，初始化 eagleMysql 类。
      * @parmas {Object} config mysql数据库配置，包括账号，密码，url，库名等。
      * @method init
      */
     o.init = function(config) {
+        if (o.debug) {
+            console.log("[init eagleMysql]: " + config);
+        }
+
         this.mysql = require('mysql');
         this.dbConfig = config;
     };
@@ -35,6 +46,9 @@ sl.eagleMysql = (function() {
                 queryStr += fields[t].key + ' ' + fields[t].type + ', ';
             }
             queryStr += 'PRIMARY KEY (id))';
+            if (o.debug) {
+                console.log("[createTables]: " + queryStr);
+            }
             this.client.query(queryStr);
         };
     };
@@ -67,6 +81,9 @@ sl.eagleMysql = (function() {
         for (var i = 1, keysLen = params.keys.length; i < keysLen; ++i) {
             keyStr += ', ' + params.keys[i] + '=? ';
         }
+        if (o.debug) {
+            console.log("[insert]: " + "INSERT INTO " + params.table + " SET " + keyStr);
+        }
         this.client.query('INSERT INTO ' + params.table + ' SET ' + keyStr, params.values, 
             function (err, results, fields) {
                 o._doCallback(err, results, fields, callback);
@@ -97,6 +114,9 @@ sl.eagleMysql = (function() {
      * @method delete
      */
     o.delete = function (params, callback) {
+        if (o.debug) {
+            console.log("[delete]: " + "DELETE FROM " + params.table + " " + params.conditions);
+        }
         this.client.query('DELETE FROM ' + params.table  + ' ' + params.conditions,
             function (err, results, fields) {
                 o._doCallback(err, results, fields, callback);
@@ -133,6 +153,9 @@ sl.eagleMysql = (function() {
         for (var i = 1, keysLen = params.keys.length; i < keysLen; ++i) {
             keyStr += ', ' + params.keys[i] + '=? ';
         }
+        if (o.debug) {
+            console.log("[update]: " + "UPDATE " + params.table + " SET " + keyStr + " " + params.conditions);
+        }
         this.client.query('UPDATE ' + params.table + ' SET ' + keyStr + ' ' + params.conditions, params.values,
             function (err, results, fields) {
                 o._doCallback(err, results, fields, callback);
@@ -168,6 +191,9 @@ sl.eagleMysql = (function() {
         for (var i = 1, keysLen = params.keys.length; i < keysLen; ++i) {
             keyStr += ', ' + params.keys[i] + ' ';
         }
+        if (o.debug) {
+            console.log("[update]: " + "SELECT " + keyStr + " FROM " + params.table  + " " + params.conditions);
+        }
         this.client.query('SELECT ' + keyStr + ' FROM ' + params.table  + ' ' + params.conditions,
             function (err, results, fields) {
                 o._doCallback(err, results, fields, callback);
@@ -181,6 +207,9 @@ sl.eagleMysql = (function() {
      */
     o.connet = function () {
         this.client = this.mysql.createConnection(this.dbConfig.dbOptions);
+        if (o.debug) {
+            console.log("[connet]: " + "USE " + this.dbConfig.dataBase);
+        }
         this.client.query('USE ' + this.dbConfig.dataBase, function(error, results) {
             if(error) {
                 console.log('ClientConnectionReady Error: ' + error.message);

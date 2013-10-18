@@ -190,6 +190,15 @@
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
             "line": 13,
+            "description": "是否输出调试信息",
+            "itemtype": "property",
+            "name": "debug",
+            "type": "bool",
+            "class": "sl.eagleMysql"
+        },
+        {
+            "file": "..\\dev\\eagleMysql\\eagleMysql.js",
+            "line": 20,
             "description": "构造函数，初始化 eagleMysql 类。",
             "parmas": "{Object} config mysql数据库配置，包括账号，密码，url，库名等。",
             "itemtype": "method",
@@ -198,7 +207,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 23,
+            "line": 34,
             "description": "建表",
             "parmas": "{Array} tables 表名数组",
             "itemtype": "method",
@@ -207,7 +216,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 42,
+            "line": 56,
             "description": "往表中插入数据",
             "parmas": "{Array} params 插入操作的相关数据，包括表名，键值等",
             "params": [
@@ -226,7 +235,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 77,
+            "line": 94,
             "description": "删除表中指定数据",
             "parmas": "{Array} params 删除操作的相关数据，包括表名，条件等。",
             "params": [
@@ -245,7 +254,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 107,
+            "line": 127,
             "description": "更新表中指定数据",
             "parmas": "{Array} params 更新操作的相关数据，包括表名，条件等。",
             "params": [
@@ -264,7 +273,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 143,
+            "line": 166,
             "description": "检索表中指定数据",
             "parmas": "{Array} params 更新操作的相关数据，包括表名，条件等。",
             "params": [
@@ -283,7 +292,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 178,
+            "line": 204,
             "description": "链接数据库",
             "itemtype": "method",
             "name": "connet",
@@ -291,7 +300,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 194,
+            "line": 223,
             "description": "与数据库断开链接",
             "itemtype": "method",
             "name": "disconnet",
@@ -299,7 +308,7 @@
         },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
-            "line": 203,
+            "line": 232,
             "description": "数据库操作通用回调函数",
             "itemtype": "method",
             "name": "_doCallback",
@@ -725,43 +734,43 @@
     "warnings": [
         {
             "message": "unknown tag: parmas",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:13"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:20"
         },
         {
             "message": "unknown tag: parmas",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:23"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:34"
         },
         {
             "message": "unknown tag: parmas",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:42"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:56"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:42"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:56"
         },
         {
             "message": "unknown tag: parmas",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:77"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:94"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:77"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:94"
         },
         {
             "message": "unknown tag: parmas",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:107"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:127"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:107"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:127"
         },
         {
             "message": "unknown tag: parmas",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:143"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:166"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:143"
+            "line": " ..\\dev\\eagleMysql\\eagleMysql.js:166"
         }
     ]
 }
