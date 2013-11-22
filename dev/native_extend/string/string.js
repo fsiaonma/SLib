@@ -55,16 +55,6 @@ sl.string = (function() {
          */
         isEmail: function () {
             return regs.email.test(this.string.trim());
-        },
-
-        /**
-         * 判断字符串格式是否为 post
-         * @method isPost
-         * @example sl.string(str).isPost();
-         * @return {bool} 字符串格式是否为 post，true 为 post 格式。
-         */
-        isPost: function() {  
-            return regs.post.test(this.string.trim());  
         }
     }
 

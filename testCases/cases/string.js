@@ -19,3 +19,12 @@ describe("sl.string()", function() {
     })
   })
 });
+
+describe("sl.string()", function() {
+  describe("#isEmail", function() {
+    it("判断是否包含某指定字符", function() {
+		assert.equal(false, sl.string("Slib").isEmail());
+		assert.equal(true, sl.string("kk@gmail.com").isEmail());
+    })
+  })
+});
