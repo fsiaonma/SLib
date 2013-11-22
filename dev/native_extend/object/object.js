@@ -71,9 +71,9 @@ sl.object = (function() {
             for (var i in this.object) {
                 var type = sl.extendBase.getType(this.object[i]);
                 if (type == sl.extendBase.Config.Object) {
-                    str += sl.object(this.object[i]).toString();
+                    str += i + ":" + sl.object(this.object[i]).toString();
                 } else if (type == sl.extendBase.Config.Array) {
-                    str += sl.array(this.object[i]).toString();
+                    str += i + ":" + sl.array(this.object[i]).toString();
                 } else {
                     str += i + ":" + this.object[i];
                 }

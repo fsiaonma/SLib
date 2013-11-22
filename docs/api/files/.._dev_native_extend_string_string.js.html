@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\dev\native_extend\extendBase.js - SLib 使用说明文档</title>
+    <title>..\dev\native_extend\string\string.js - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -98,45 +98,90 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\dev\native_extend\extendBase.js</h1>
+                        <h1 class="file-heading">File: ..\dev\native_extend\string\string.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * extendBase 类, 原生接口扩展的基类
- *
- * @class extendBase
+ * string 类，字符串扩展类
+ * @class sl.string
  * @constructor
  */
-sl.extendBase = {
-	/**
-	 * 配置对象
-	 * @property Config
-	 * @type {object}
-	 */
-	Config: {
-		Object: &quot;Object&quot;,
-		Array: &quot;Array&quot;,
-		String: &quot;String&quot;
-	},
+sl.string = (function() {
+	var regs = {
+        trim : /(^\s*)|(\s*$)/g,
+        androidVersion : /^Android+\s+\d+/i,
+        email : /^[a-zA-Z0-9_\-]{1,}@[a-zA-Z0-9_\-]{1,}\.[a-zA-Z0-9_\-.]{1,}$/,
+        post : /^\d{6}$/
+    };
 
-	/**
-	 * 获取参数类型
-	 * @param {任意} 需要判断类型的参数
-	 * @method getType
-	 * @return {String} 参数类型
-	 * @example sl.base.getType(&quot;mseeage&quot;) 或 sl.base.getType([1, 2, 3]);
-	 */
-	getType: function(params) {
-		var type = Object.prototype.toString.call(params);
-		type = type.substring(type.indexOf(&#x27; &#x27;) + 1, type.indexOf(&quot;]&quot;));
-		if (type == undefined) {
-			console.log(&quot;[错误] getType 参数类型错误&quot;);
-		}
-		return type;
-	}
-}
+ 	var slstr = function(str) {
+        /**
+         * 需要处理的字符串
+         * @property string
+         * @type {String}
+         * @default &quot;&quot;
+         */
+        this.string = str;
+    }
 
+    slstr.prototype = {
+    	/**
+         * 首字母变大写
+         * @method initialsToUpper
+         * @example sl.string(str).initialsToUpper();
+         * @return {String} 首字母变大写后的字符串
+         */
+        initialsToUpper: function () {
+            return this.string.substring(0,1).toUpperCase().concat(this.string.substring(1));  
+        },
+
+        /**
+         * 判断字符串中是否包含某指定字符
+         * @method isContain
+         * @params {String} item 指定字符，单个字符。
+         * @example sl.string(str).initialsToUpper();
+         * @return {bool} 是否包含该字符，true 为包含。 
+         */
+        isContain: function(item) {
+        	if (sl.extendBase.getType(item) == sl.extendBase.Config.String &amp;&amp; item.length != 1) {
+        		console.log(&quot;[错误] sl.string.isContain 参数类型错误&quot;);
+        		return false;
+        	}
+        	return this.string.indexOf(item) &gt; -1 ? true : false;
+        },
+
+        /**
+         * 判断字符串格式是否为 email
+         * @method isEmail
+         * @example sl.string(str).isEmail();
+         * @return {bool} 字符串格式是否为 email，true 为 email 格式。
+         */
+        isEmail: function () {
+            return regs.email.test(this.string.trim());
+        },
+
+        /**
+         * 判断字符串格式是否为 post
+         * @method isPost
+         * @example sl.string(str).isPost();
+         * @return {bool} 字符串格式是否为 post，true 为 post 格式。
+         */
+        isPost: function() {  
+            return regs.post.test(this.string.trim());  
+        }
+    }
+
+    return function(str) {
+ 		if (sl.extendBase.getType(str) != sl.extendBase.Config.String) {
+ 			console.log(&quot;[错误] sl.string 参数类型错误&quot;);
+ 		} else if (str == &quot;&quot;) {
+ 			console.log(&quot;[错误] sl.string 长度为 0&quot;);
+ 		} else {
+ 			return new slstr(str);
+ 		}
+ 	}
+ })();
     </pre>
 </div>
 

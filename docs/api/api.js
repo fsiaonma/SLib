@@ -8,7 +8,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "sl.log",
         "sl.log_mode",
         "sl.object",
-        "sl.sqlCondition"
+        "sl.sqlCondition",
+        "sl.string"
     ],
     "modules": [],
     "allModules": []

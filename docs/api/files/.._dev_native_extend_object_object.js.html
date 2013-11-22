@@ -57,6 +57,8 @@
             
                 <li><a href="../classes/sl.sqlCondition.html">sl.sqlCondition</a></li>
             
+                <li><a href="../classes/sl.string.html">sl.string</a></li>
+            
             </ul>
 
             <ul id="api-modules" class="apis modules">
@@ -173,9 +175,9 @@ sl.object = (function() {
             for (var i in this.object) {
                 var type = sl.extendBase.getType(this.object[i]);
                 if (type == sl.extendBase.Config.Object) {
-                    str += sl.object(this.object[i]).toString();
+                    str += i + &quot;:&quot; + sl.object(this.object[i]).toString();
                 } else if (type == sl.extendBase.Config.Array) {
-                    str += sl.array(this.object[i]).toString();
+                    str += i + &quot;:&quot; + sl.array(this.object[i]).toString();
                 } else {
                     str += i + &quot;:&quot; + this.object[i];
                 }

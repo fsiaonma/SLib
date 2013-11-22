@@ -60,6 +60,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "..\\dev\\native_extend\\string\\string.js": {
+            "name": "..\\dev\\native_extend\\string\\string.js",
+            "modules": {},
+            "classes": {
+                "sl.string": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\native_extend\\extendBase.js": {
             "name": "..\\dev\\native_extend\\extendBase.js",
             "modules": {},
@@ -157,6 +166,19 @@
             "file": "..\\dev\\native_extend\\object\\object.js",
             "line": 1,
             "description": "object 类，对象扩展类",
+            "is_constructor": 1
+        },
+        "sl.string": {
+            "name": "sl.string",
+            "shortname": "sl.string",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\native_extend\\string\\string.js",
+            "line": 1,
+            "description": "string 类，字符串扩展类",
             "is_constructor": 1
         },
         "extendBase": {
@@ -700,6 +722,83 @@
             "class": "sl.object"
         },
         {
+            "file": "..\\dev\\native_extend\\string\\string.js",
+            "line": 15,
+            "description": "需要处理的字符串",
+            "itemtype": "property",
+            "name": "string",
+            "type": "{String}",
+            "default": "\"\"",
+            "class": "sl.string"
+        },
+        {
+            "file": "..\\dev\\native_extend\\string\\string.js",
+            "line": 25,
+            "description": "首字母变大写",
+            "itemtype": "method",
+            "name": "initialsToUpper",
+            "example": [
+                " sl.string(str).initialsToUpper();"
+            ],
+            "return": {
+                "description": "首字母变大写后的字符串",
+                "type": "String"
+            },
+            "class": "sl.string"
+        },
+        {
+            "file": "..\\dev\\native_extend\\string\\string.js",
+            "line": 35,
+            "description": "判断字符串中是否包含某指定字符",
+            "itemtype": "method",
+            "name": "isContain",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "指定字符，单个字符。",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                " sl.string(str).initialsToUpper();"
+            ],
+            "return": {
+                "description": "是否包含该字符，true 为包含。",
+                "type": "Bool"
+            },
+            "class": "sl.string"
+        },
+        {
+            "file": "..\\dev\\native_extend\\string\\string.js",
+            "line": 50,
+            "description": "判断字符串格式是否为 email",
+            "itemtype": "method",
+            "name": "isEmail",
+            "example": [
+                " sl.string(str).isEmail();"
+            ],
+            "return": {
+                "description": "字符串格式是否为 email，true 为 email 格式。",
+                "type": "Bool"
+            },
+            "class": "sl.string"
+        },
+        {
+            "file": "..\\dev\\native_extend\\string\\string.js",
+            "line": 60,
+            "description": "判断字符串格式是否为 post",
+            "itemtype": "method",
+            "name": "isPost",
+            "example": [
+                " sl.string(str).isPost();"
+            ],
+            "return": {
+                "description": "字符串格式是否为 post，true 为 post 格式。",
+                "type": "Bool"
+            },
+            "class": "sl.string"
+        },
+        {
             "file": "..\\dev\\native_extend\\extendBase.js",
             "line": 8,
             "description": "配置对象",
@@ -771,6 +870,10 @@
         {
             "message": "replacing incorrect tag: params with param",
             "line": " ..\\dev\\eagleMysql\\eagleMysql.js:166"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " ..\\dev\\native_extend\\string\\string.js:35"
         }
     ]
 }

@@ -50,7 +50,7 @@ describe("sl.array()", function() {
 
 describe("sl.array()", function() {
   describe("#toString", function() {
-    it("字符串序列化", function() {
+    it("数组序列化", function() {
     	expect("[1, 2, [3], {4:4}]").to.have.string(sl.array([1, "2", [3], {4: "4"}]).toString());
     })
   })
