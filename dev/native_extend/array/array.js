@@ -132,7 +132,8 @@ sl.array = (function() {
          */
         toString: function() {
             var str = "[";
-            this.array.map(function(item) { 
+            for (var i = 0, len = this.array.length; i < len; ++i) {
+                var item = this.array[i];
                 var type = sl.extendBase.getType(item);
                 if (type == sl.extendBase.Config.Object) {
                     str += sl.object(item).toString();
@@ -142,7 +143,7 @@ sl.array = (function() {
                     str += item;
                 }
                 str += ", ";
-            });
+            }
             str.length > 1? str = str.substr(0, str.lastIndexOf(",")) + "]" : str += "]";
             return str;
         },
@@ -155,7 +156,8 @@ sl.array = (function() {
          */
         clone: function() {
             var rst = [];
-            this.array.map(function(item) {
+            for (var i = 0, len = this.array.length; i < len; ++i) {
+                var item = this.array[i];
                 var type = sl.extendBase.getType(item);
                 if (type == sl.extendBase.Config.Object) {
                     rst.push(sl.object(item).clone());
@@ -164,7 +166,7 @@ sl.array = (function() {
                 } else {
                     rst.push(item);
                 }
-            });
+            }
             return rst;
         }
     }
