@@ -155,19 +155,7 @@ sl.array = (function() {
          * @return {Array} 复制后的数组
          */
         clone: function() {
-            var rst = [];
-            for (var i = 0, len = this.array.length; i < len; ++i) {
-                var item = this.array[i];
-                var type = sl.extendBase.getType(item);
-                if (type == sl.extendBase.Config.Object) {
-                    rst.push(sl.object(item).clone());
-                } else if (type == sl.extendBase.Config.Array) {
-                    rst.push(sl.array(item).clone());
-                } else {
-                    rst.push(item);
-                }
-            }
-            return rst;
+            return this.array.slice();
         }
     }
 

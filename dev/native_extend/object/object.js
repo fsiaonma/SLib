@@ -93,9 +93,9 @@ sl.object = (function() {
             var rst = {};
             for (var i in this.object) {
                 var type = sl.extendBase.getType(this.object[i]);
-                if (type == "Object") {
+                if (type == sl.extendBase.Config.Object) {
                     rst[i] = sl.object(this.object[i]).clone();
-                } else if (type == "Array") {
+                } else if (type == sl.extendBase.Config.Array) {
                     rst[i] = sl.array(this.object[i]).clone();
                 } else {
                     rst[i] = this.object[i];
