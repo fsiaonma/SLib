@@ -13,7 +13,8 @@ sl.extendBase = {
 	Config: {
 		Object: "Object",
 		Array: "Array",
-		String: "String"
+		String: "String",
+		Function: "Function"
 	},
 
 	/**

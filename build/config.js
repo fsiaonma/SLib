@@ -23,12 +23,16 @@ config.projects = [{
     rootPath: '../dev/',       
     buildPath: '../production/',         
     js: {         
-        merge: [{
+        compression: [{
             dir: [
                 "sl.js",
-                "eagleMysql/", // 加载 eagleMysql 模块
-                "log/", // 加载日志模块
-                "native_extend/" // 加载拓展模块
+                // "eagleMysql/", // 加载 eagleMysql 模块
+                // "log/", // 加载日志模块
+                // "native_extend/", // 加载拓展模块
+                // "cookie/", // cookie 模块
+                // "format/",  // 文件格式模块
+                // "picShower/" // 图片显示类
+                "dom/" // dom 附加操作
             ],             
             outputFile: 'slib.pro.js'
         }],

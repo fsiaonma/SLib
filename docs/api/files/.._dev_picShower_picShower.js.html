@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\dev\native_extend\object\object.js - SLib 使用说明文档</title>
+    <title>..\dev\picShower\picShower.js - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -108,125 +108,62 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\dev\native_extend\object\object.js</h1>
+                        <h1 class="file-heading">File: ..\dev\picShower\picShower.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * object 类，对象扩展类
- * @class sl.object
+ * 应用画图类
+ * @class sl.picShower
  * @constructor
  */
-sl.object = (function() {
- 	var slobj = function(obj) {
-        /**
-         * 需要处理的对象
-         * @property object
-         * @type {object}
-         * @default {}
+sl.picShower = (function() {
+	return {
+		/**
+         * 根据参数页面显示图片
+         * @param {Object} file 文本对象
+         * @param {String} renderEl 渲染目标
+         * @param {String} renderW 渲染宽度
+         * @param {String} renderH 渲染高度
+         * @method render
+         * @example sl.picShower.render(file, &quot;img&quot;, 100, 50)
          */
-        this.object = obj;
-    }
-
-    slobj.prototype = {
-        /**
-         * 比较 2 个对象是否相等
-         * @param {Object} obj 需要比较的对象
-         * @method equalsTo
-         * @example sl.object(obj1).equalsTo(obj2);
-         * @return {bool} ture 表述2对象相等，false 则不相等
+		render: function(file, renderEl, renderW, renderH) {
+			if (FileReader == undefined) {
+				console.log(&quot;该浏览器不支持 FileReader&quot;);
+				return ;
+			}
+			var filereader = new FileReader();
+			filereader.readAsDataURL(file);
+		    filereader.onload = function(event) {
+		        var blob = new Blob([event.target.result]);
+		        var img = new Image();
+		        img.onload = function() {
+		        	var toAppend = document.getElementById(renderEl);
+		            var c = document.createElement(&#x27;canvas&#x27;);
+			        c.width = renderW;
+			        c.height = renderH;
+			        var ctx = c.getContext(&#x27;2d&#x27;);
+			        ctx.scale(c.width / img.width, c.height / img.height);
+			        ctx.drawImage(img, 0, 0, img.width, img.height);
+			        toAppend.src = c.toDataURL(&#x27;image/png&#x27;);
+		        }
+		        img.src = event.target.result;
+		        img.title = &#x27;Imported via file upload&#x27;;
+		    };
+		},
+		
+		/**
+         * 清除图片
+         * @param {String} renderEl 清除目标
          */
-        equalsTo: function(obj) {
-            var flag = true;
-            for (var i in this.object) {
-                var type = sl.extendBase.getType(this.object[i]);
-                var objType = sl.extendBase.getType(obj[i]);
-                if (type != objType) {
-                    flag = false;
-                } else if (type == sl.extendBase.Config.Array) {
-                    flag = sl.array(this.object[i]).equalsTo(obj[i]);
-                } else if (type == sl.extendBase.Config.Object) {
-                    flag = sl.object(this.object[i]).equalsTo(obj[i]);
-                } else {
-                    flag = (obj[i] == this.object[i]);
-                }
-                if (!flag) {
-                  break;
-                }
-            }
-            return flag;
-        },
-
-        /**
-         * 判断对象是否包含某一指定值
-         * @param {String} data 需要判断的键值
-         * @method isContain
-         * @example sl.object(object).isContain(1);
-         * @return {bool} ture 表述对象包含该特定值，false 则不包含 
-         */
-        isContainKey: function(data) {
-            var flag = false;
-            for (var i in this.object) {
-                if (i == data) {
-                    flag = true;
-                }
-            }
-            return flag;
-        },
-
-        /**
-         * 转换成字符串
-         * @method toString
-         * @example sl.object(object).toString();
-         * @return {String} 转换后的字符串
-         */
-        toString: function() {
-            var str = &quot;{&quot;;
-            for (var i in this.object) {
-                var type = sl.extendBase.getType(this.object[i]);
-                if (type == sl.extendBase.Config.Object) {
-                    str += i + &quot;:&quot; + sl.object(this.object[i]).toString();
-                } else if (type == sl.extendBase.Config.Array) {
-                    str += i + &quot;:&quot; + sl.array(this.object[i]).toString();
-                } else {
-                    str += i + &quot;:&quot; + this.object[i];
-                }
-                str += &quot;, &quot;;
-            }
-            str.length &gt; 1? str = str.substr(0, str.lastIndexOf(&quot;,&quot;)) + &quot;}&quot; : str += &quot;}&quot;;
-            return str;
-        },
-
-        /**
-         * 复制对象
-         * @method clone
-         * @example sl.object(object).clone();
-         * @return {Object} 复制后的对象
-         */
-        clone: function() {
-            var rst = {};
-            for (var i in this.object) {
-                var type = sl.extendBase.getType(this.object[i]);
-                if (type == sl.extendBase.Config.Object) {
-                    rst[i] = sl.object(this.object[i]).clone();
-                } else if (type == sl.extendBase.Config.Array) {
-                    rst[i] = sl.array(this.object[i]).clone();
-                } else {
-                    rst[i] = this.object[i];
-                }
-            };
-            return rst;
-        }
-    }
-
- 	return function(object) {
- 		if (sl.extendBase.getType(object) != sl.extendBase.Config.Object) {
- 			console.log(&quot;[错误] sl.object 参数类型错误&quot;);
- 		} else {
- 			return new slobj(object);
- 		}
- 	}
- })();
+		clear: function(renderEl) {
+			var toClear = document.getElementById(renderEl);
+			toClear.src = &quot;&quot;;
+		}
+	}
+})();
+		
     </pre>
 </div>
 

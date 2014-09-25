@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>sl.sqlCondition - SLib 使用说明文档</title>
+    <title>sl.cookie - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -108,7 +108,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>sl.sqlCondition Class</h1>
+                        <h1>sl.cookie Class</h1>
 <div class="box meta">
     
 
@@ -116,7 +116,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l1"><code>..\dev\eagleMysql\sqlCondition.js:1</code></a>
+            Defined in: <a href="../files/.._dev_cookie_slCookie.js.html#l1"><code>..\dev\cookie\slCookie.js:1</code></a>
         </div>
     
 
@@ -128,15 +128,15 @@
 
 
 <div class="box intro">
-    <p>sqlCondition 类，用于描述 sql 条件</p>
+    <p>cookie 类</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_sl.sqlCondition" class="method item">
-    <h3 class="name"><code>sl.sqlCondition</code></h3>
+        <div id="method_sl.cookie" class="method item">
+    <h3 class="name"><code>sl.cookie</code></h3>
 
     
         <span class="paren">()</span>
@@ -167,7 +167,7 @@
             
         
         
-        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l1"><code>..\dev\eagleMysql\sqlCondition.js:1</code></a>
+        <a href="../files/.._dev_cookie_slCookie.js.html#l1"><code>..\dev\cookie\slCookie.js:1</code></a>
         
         </p>
 
@@ -214,28 +214,14 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_and">and</a>
+                                <a href="#method_getCookie">getCookie</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_getSql">getSql</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_or">or</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_where">where</a>
+                                <a href="#method_setCookie">setCookie</a>
 
                                 
                                 
@@ -257,17 +243,23 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_and" class="method item">
-    <h3 class="name"><code>and</code></h3>
+                    <div id="method_getCookie" class="method item">
+    <h3 class="name"><code>getCookie</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
     
 
     
@@ -293,7 +285,7 @@
             
         
         
-        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l20"><code>..\dev\eagleMysql\sqlCondition.js:20</code></a>
+        <a href="../files/.._dev_cookie_slCookie.js.html#l25"><code>..\dev\cookie\slCookie.js:25</code></a>
         
         </p>
 
@@ -304,50 +296,65 @@
     </div>
 
     <div class="description">
-        <p>and 条件</p>
+        <p>获取 cookie 值</p>
 
     </div>
 
     
+        <div class="params">
+            <h4>Parameters:</h4>
 
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
+            <ul class="params-list">
+            
+                <li class="param">
                     
-                    <p>sl.sqlCondition 实例</p>
+                        <code class="param-name">name</code>
+                        <span class="type">Object</span>
+                    
 
-                
-            </div>
+                    
+
+                    <div class="param-description">
+                        <p>cookie 名称 键值</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
         </div>
     
 
     
-        <div class="example">
-            <h4>Example:</h4>
 
-            <div class="example-content">
-                <p> sl.sqlCondition.and(&quot;1=1&quot;);</p>
-
-            </div>
-        </div>
     
 </div>
 
                 
-                    <div id="method_getSql" class="method item">
-    <h3 class="name"><code>getSql</code></h3>
+                    <div id="method_setCookie" class="method item">
+    <h3 class="name"><code>setCookie</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>value</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
     
 
     
@@ -373,7 +380,7 @@
             
         
         
-        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l42"><code>..\dev\eagleMysql\sqlCondition.js:42</code></a>
+        <a href="../files/.._dev_cookie_slCookie.js.html#l8"><code>..\dev\cookie\slCookie.js:8</code></a>
         
         </p>
 
@@ -384,195 +391,54 @@
     </div>
 
     <div class="description">
-        <p>getSql 方法，获取拼接后的 sql 语句</p>
+        <p>设置 cookie</p>
 
     </div>
 
     
+        <div class="params">
+            <h4>Parameters:</h4>
 
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
+            <ul class="params-list">
+            
+                <li class="param">
                     
-                    <p>拼接后的 sql 语句</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <p> sl.sqlCondition.where(&quot;1=1&quot;).getSql();</p>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_or" class="method item">
-    <h3 class="name"><code>or</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l31"><code>..\dev\eagleMysql\sqlCondition.js:31</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>or 条件</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
+                        <code class="param-name">name</code>
+                        <span class="type">Object</span>
                     
-                    <p>sl.sqlCondition 实例</p>
 
-                
-            </div>
-        </div>
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <p> sl.sqlCondition.or(&quot;1=1&quot;);</p>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_where" class="method item">
-    <h3 class="name"><code>where</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/.._dev_eagleMysql_sqlCondition.js.html#l9"><code>..\dev\eagleMysql\sqlCondition.js:9</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>where 条件</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
                     
-                    <p>sl.sqlCondition 实例</p>
 
-                
-            </div>
+                    <div class="param-description">
+                        <p>cookie 名称 键值</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">value</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>cookie 名称 键值 对应内容。</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
         </div>
     
 
     
-        <div class="example">
-            <h4>Example:</h4>
 
-            <div class="example-content">
-                <p> sl.sqlCondition.where(&quot;1=1&quot;);</p>
-
-            </div>
-        </div>
     
 </div>
 

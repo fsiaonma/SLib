@@ -33,7 +33,7 @@ sl.eagleMysql = (function() {
 
     /**
      * 建表
-     * @parmas {Array} tables 表名数组 
+     * @parmas {Array} tables 表数据
      * @method createTables
      */
     o.createTables = function (tables) {
@@ -222,9 +222,9 @@ sl.eagleMysql = (function() {
 
     /**
      * 与数据库断开链接
-     * @method disconnet
+     * @method disconnect
      */
-    o.disconnet = function () {
+    o.disconnect = function () {
         this.client.end();
         this.client = null;
     };

@@ -43,17 +43,27 @@
             
                 <li><a href="../classes/extendBase.html">extendBase</a></li>
             
+                <li><a href="../classes/formatBase.html">formatBase</a></li>
+            
                 <li><a href="../classes/sl.html">sl</a></li>
             
                 <li><a href="../classes/sl.array.html">sl.array</a></li>
             
+                <li><a href="../classes/sl.cookie.html">sl.cookie</a></li>
+            
+                <li><a href="../classes/sl.dom.html">sl.dom</a></li>
+            
                 <li><a href="../classes/sl.eagleMysql.html">sl.eagleMysql</a></li>
+            
+                <li><a href="../classes/sl.format.html">sl.format</a></li>
             
                 <li><a href="../classes/sl.log.html">sl.log</a></li>
             
                 <li><a href="../classes/sl.log_mode.html">sl.log_mode</a></li>
             
                 <li><a href="../classes/sl.object.html">sl.object</a></li>
+            
+                <li><a href="../classes/sl.picShower.html">sl.picShower</a></li>
             
                 <li><a href="../classes/sl.sqlCondition.html">sl.sqlCondition</a></li>
             
@@ -236,7 +246,8 @@ sl.array = (function() {
          */
         toString: function() {
             var str = &quot;[&quot;;
-            this.array.map(function(item) { 
+            for (var i = 0, len = this.array.length; i &lt; len; ++i) {
+                var item = this.array[i];
                 var type = sl.extendBase.getType(item);
                 if (type == sl.extendBase.Config.Object) {
                     str += sl.object(item).toString();
@@ -246,7 +257,7 @@ sl.array = (function() {
                     str += item;
                 }
                 str += &quot;, &quot;;
-            });
+            }
             str.length &gt; 1? str = str.substr(0, str.lastIndexOf(&quot;,&quot;)) + &quot;]&quot; : str += &quot;]&quot;;
             return str;
         },
@@ -258,18 +269,7 @@ sl.array = (function() {
          * @return {Array} 复制后的数组
          */
         clone: function() {
-            var rst = [];
-            this.array.map(function(item) {
-                var type = sl.extendBase.getType(item);
-                if (type == sl.extendBase.Config.Object) {
-                    rst.push(sl.object(item).clone());
-                } else if (type == sl.extendBase.Config.Array) {
-                    rst.push(sl.array(item).clone());
-                } else {
-                    rst.push(item);
-                }
-            });
-            return rst;
+            return this.array.slice();
         }
     }
 

@@ -6,6 +6,24 @@
         "url": "https://github.com/fsiaonma/SLib"
     },
     "files": {
+        "..\\dev\\cookie\\slCookie.js": {
+            "name": "..\\dev\\cookie\\slCookie.js",
+            "modules": {},
+            "classes": {
+                "sl.cookie": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\dev\\dom\\dom.js": {
+            "name": "..\\dev\\dom\\dom.js",
+            "modules": {},
+            "classes": {
+                "sl.dom": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\eagleMysql\\eagleMysql.js": {
             "name": "..\\dev\\eagleMysql\\eagleMysql.js",
             "modules": {},
@@ -24,6 +42,24 @@
             "fors": {},
             "namespaces": {}
         },
+        "..\\dev\\format\\format.js": {
+            "name": "..\\dev\\format\\format.js",
+            "modules": {},
+            "classes": {
+                "sl.format": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\dev\\format\\formatBase.js": {
+            "name": "..\\dev\\format\\formatBase.js",
+            "modules": {},
+            "classes": {
+                "formatBase": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\log\\log.js": {
             "name": "..\\dev\\log\\log.js",
             "modules": {},
@@ -36,9 +72,7 @@
         "..\\dev\\log\\log_mode.js": {
             "name": "..\\dev\\log\\log_mode.js",
             "modules": {},
-            "classes": {
-                "sl.log_mode": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -78,6 +112,24 @@
             "fors": {},
             "namespaces": {}
         },
+        "..\\dev\\picShower\\picShower.js": {
+            "name": "..\\dev\\picShower\\picShower.js",
+            "modules": {},
+            "classes": {
+                "sl.picShower": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\dev\\webSocket\\webSocket.js": {
+            "name": "..\\dev\\webSocket\\webSocket.js",
+            "modules": {},
+            "classes": {
+                "sl.log_mode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\sl.js": {
             "name": "..\\dev\\sl.js",
             "modules": {},
@@ -90,6 +142,32 @@
     },
     "modules": {},
     "classes": {
+        "sl.cookie": {
+            "name": "sl.cookie",
+            "shortname": "sl.cookie",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\cookie\\slCookie.js",
+            "line": 1,
+            "description": "cookie 类",
+            "is_constructor": 1
+        },
+        "sl.dom": {
+            "name": "sl.dom",
+            "shortname": "sl.dom",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\dom\\dom.js",
+            "line": 1,
+            "description": "dom 类",
+            "is_constructor": 1
+        },
         "sl.eagleMysql": {
             "name": "sl.eagleMysql",
             "shortname": "sl.eagleMysql",
@@ -116,6 +194,32 @@
             "description": "sqlCondition 类，用于描述 sql 条件",
             "is_constructor": 1
         },
+        "sl.format": {
+            "name": "sl.format",
+            "shortname": "sl.format",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\format\\format.js",
+            "line": 1,
+            "description": "format 类，文件格式l",
+            "is_constructor": 1
+        },
+        "formatBase": {
+            "name": "formatBase",
+            "shortname": "formatBase",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\format\\formatBase.js",
+            "line": 1,
+            "description": "formatBase 类, format 接口基类",
+            "is_constructor": 1
+        },
         "sl.log": {
             "name": "sl.log",
             "shortname": "sl.log",
@@ -137,7 +241,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "..\\dev\\log\\log_mode.js",
+            "file": "..\\dev\\webSocket\\webSocket.js",
             "line": 1,
             "description": "log_mode 类，标记打印日志级别。",
             "is_constructor": 1
@@ -194,6 +298,19 @@
             "description": "extendBase 类, 原生接口扩展的基类",
             "is_constructor": 1
         },
+        "sl.picShower": {
+            "name": "sl.picShower",
+            "shortname": "sl.picShower",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\picShower\\picShower.js",
+            "line": 1,
+            "description": "应用画图类",
+            "is_constructor": 1
+        },
         "sl": {
             "name": "sl",
             "shortname": "sl",
@@ -209,6 +326,105 @@
         }
     },
     "classitems": [
+        {
+            "file": "..\\dev\\cookie\\slCookie.js",
+            "line": 8,
+            "description": "设置 cookie",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "cookie 名称 键值"
+                },
+                {
+                    "name": "value",
+                    "description": "cookie 名称 键值 对应内容。"
+                }
+            ],
+            "itemtype": "method",
+            "name": "setCookie",
+            "class": "sl.cookie"
+        },
+        {
+            "file": "..\\dev\\cookie\\slCookie.js",
+            "line": 25,
+            "description": "获取 cookie 值",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "cookie 名称 键值"
+                }
+            ],
+            "itemtype": "method",
+            "name": "getCookie",
+            "class": "sl.cookie"
+        },
+        {
+            "file": "..\\dev\\dom\\dom.js",
+            "line": 8,
+            "description": "需要处理DOM对象",
+            "itemtype": "property",
+            "name": "dom",
+            "type": "{dom}",
+            "default": "null",
+            "class": "sl.dom"
+        },
+        {
+            "file": "..\\dev\\dom\\dom.js",
+            "line": 18,
+            "description": "为 dom 对象添加属性",
+            "params": [
+                {
+                    "name": "className",
+                    "description": "类名",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "addClass",
+            "example": [
+                " sl.array(\"divId\").addClass(\"className\");"
+            ],
+            "class": "sl.dom"
+        },
+        {
+            "file": "..\\dev\\dom\\dom.js",
+            "line": 30,
+            "description": "为 dom 对象删除属性",
+            "params": [
+                {
+                    "name": "className",
+                    "description": "类名",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "removeClass",
+            "example": [
+                " sl.array(\"divId\").removeClass(\"className\");"
+            ],
+            "class": "sl.dom"
+        },
+        {
+            "file": "..\\dev\\dom\\dom.js",
+            "line": 48,
+            "description": "判断 dom 对象是否存在某类名",
+            "params": [
+                {
+                    "name": "className",
+                    "description": "类名",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "hasClass",
+            "example": [
+                " sl.array(\"divId\").hasClass(\"className\");"
+            ],
+            "return": {
+                "description": "boolean"
+            },
+            "class": "sl.dom"
+        },
         {
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
             "line": 13,
@@ -231,7 +447,7 @@
             "file": "..\\dev\\eagleMysql\\eagleMysql.js",
             "line": 34,
             "description": "建表",
-            "parmas": "{Array} tables 表名数组",
+            "parmas": "{Array} tables 表数据",
             "itemtype": "method",
             "name": "createTables",
             "class": "sl.eagleMysql"
@@ -325,7 +541,7 @@
             "line": 223,
             "description": "与数据库断开链接",
             "itemtype": "method",
-            "name": "disconnet",
+            "name": "disconnect",
             "class": "sl.eagleMysql"
         },
         {
@@ -393,6 +609,36 @@
                 "description": "拼接后的 sql 语句"
             },
             "class": "sl.sqlCondition"
+        },
+        {
+            "file": "..\\dev\\format\\format.js",
+            "line": 8,
+            "description": "获取文件后缀名",
+            "params": [
+                {
+                    "name": "fileName",
+                    "description": "文件全名"
+                }
+            ],
+            "itemtype": "method",
+            "name": "checkFormat",
+            "return": {
+                "description": "文件名后缀",
+                "type": "String"
+            },
+            "example": [
+                " sl.format.checkFormat(\"helloworld.png\");"
+            ],
+            "class": "sl.format"
+        },
+        {
+            "file": "..\\dev\\format\\formatBase.js",
+            "line": 7,
+            "description": "格式对象",
+            "itemtype": "property",
+            "name": "Type",
+            "type": "{object}",
+            "class": "formatBase"
         },
         {
             "file": "..\\dev\\log\\log.js",
@@ -624,7 +870,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\array\\array.js",
-            "line": 150,
+            "line": 151,
             "description": "复制数组",
             "itemtype": "method",
             "name": "copy",
@@ -784,21 +1030,6 @@
             "class": "sl.string"
         },
         {
-            "file": "..\\dev\\native_extend\\string\\string.js",
-            "line": 60,
-            "description": "判断字符串格式是否为 post",
-            "itemtype": "method",
-            "name": "isPost",
-            "example": [
-                " sl.string(str).isPost();"
-            ],
-            "return": {
-                "description": "字符串格式是否为 post，true 为 post 格式。",
-                "type": "Bool"
-            },
-            "class": "sl.string"
-        },
-        {
             "file": "..\\dev\\native_extend\\extendBase.js",
             "line": 8,
             "description": "配置对象",
@@ -809,7 +1040,7 @@
         },
         {
             "file": "..\\dev\\native_extend\\extendBase.js",
-            "line": 19,
+            "line": 20,
             "description": "获取参数类型",
             "params": [
                 {
@@ -828,6 +1059,52 @@
                 " sl.base.getType(\"mseeage\") 或 sl.base.getType([1, 2, 3]);"
             ],
             "class": "extendBase"
+        },
+        {
+            "file": "..\\dev\\picShower\\picShower.js",
+            "line": 8,
+            "description": "根据参数页面显示图片",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "文本对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "renderEl",
+                    "description": "渲染目标",
+                    "type": "String"
+                },
+                {
+                    "name": "renderW",
+                    "description": "渲染宽度",
+                    "type": "String"
+                },
+                {
+                    "name": "renderH",
+                    "description": "渲染高度",
+                    "type": "String"
+                }
+            ],
+            "itemtype": "method",
+            "name": "render",
+            "example": [
+                " sl.picShower.render(file, \"img\", 100, 50)"
+            ],
+            "class": "sl.picShower"
+        },
+        {
+            "file": "..\\dev\\picShower\\picShower.js",
+            "line": 42,
+            "description": "清除图片",
+            "params": [
+                {
+                    "name": "renderEl",
+                    "description": "清除目标",
+                    "type": "String"
+                }
+            ],
+            "class": "sl.picShower"
         }
     ],
     "warnings": [
@@ -874,6 +1151,10 @@
         {
             "message": "replacing incorrect tag: params with param",
             "line": " ..\\dev\\native_extend\\string\\string.js:35"
+        },
+        {
+            "message": "Missing item type\n清除图片",
+            "line": " ..\\dev\\picShower\\picShower.js:42"
         }
     ]
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\dev\native_extend\object\object.js - SLib 使用说明文档</title>
+    <title>..\dev\dom\dom.js - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -108,125 +108,77 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\dev\native_extend\object\object.js</h1>
+                        <h1 class="file-heading">File: ..\dev\dom\dom.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * object 类，对象扩展类
- * @class sl.object
+ * dom 类
+ * @class sl.dom
  * @constructor
  */
-sl.object = (function() {
- 	var slobj = function(obj) {
+sl.dom = (function() {
+    var dom = function(el) {
         /**
-         * 需要处理的对象
-         * @property object
-         * @type {object}
-         * @default {}
+         * 需要处理DOM对象
+         * @property dom
+         * @type {dom}
+         * @default null
          */
-        this.object = obj;
-    }
+        this.el = el;
+    };
 
-    slobj.prototype = {
+    dom.prototype = {
         /**
-         * 比较 2 个对象是否相等
-         * @param {Object} obj 需要比较的对象
-         * @method equalsTo
-         * @example sl.object(obj1).equalsTo(obj2);
-         * @return {bool} ture 表述2对象相等，false 则不相等
+         * 为 dom 对象添加属性
+         * @param {String} className 类名
+         * @method addClass
+         * @example sl.array(&quot;divId&quot;).addClass(&quot;className&quot;);
          */
-        equalsTo: function(obj) {
-            var flag = true;
-            for (var i in this.object) {
-                var type = sl.extendBase.getType(this.object[i]);
-                var objType = sl.extendBase.getType(obj[i]);
-                if (type != objType) {
-                    flag = false;
-                } else if (type == sl.extendBase.Config.Array) {
-                    flag = sl.array(this.object[i]).equalsTo(obj[i]);
-                } else if (type == sl.extendBase.Config.Object) {
-                    flag = sl.object(this.object[i]).equalsTo(obj[i]);
-                } else {
-                    flag = (obj[i] == this.object[i]);
-                }
-                if (!flag) {
-                  break;
-                }
+        addClass: function(className) {
+            if (!this.hasClass(className)) {
+                this.el.className += &quot; &quot; + className;
             }
-            return flag;
         },
 
         /**
-         * 判断对象是否包含某一指定值
-         * @param {String} data 需要判断的键值
-         * @method isContain
-         * @example sl.object(object).isContain(1);
-         * @return {bool} ture 表述对象包含该特定值，false 则不包含 
+         * 为 dom 对象删除属性
+         * @param {String} className 类名
+         * @method removeClass
+         * @example sl.array(&quot;divId&quot;).removeClass(&quot;className&quot;);
          */
-        isContainKey: function(data) {
-            var flag = false;
-            for (var i in this.object) {
-                if (i == data) {
-                    flag = true;
+        removeClass: function(className) {
+            if (this.hasClass(className)) {
+                var classes = this.el.className.split(&quot; &quot;);
+                this.el.className = &quot;&quot;;
+                for (var i = 0, len = classes.length; i &lt; len; ++i) {
+                    if (classes[i] != className) {
+                        this.el.className += classes[i] + &quot; &quot;;
+                    }
                 }
             }
-            return flag;
-        },
+        }, 
 
         /**
-         * 转换成字符串
-         * @method toString
-         * @example sl.object(object).toString();
-         * @return {String} 转换后的字符串
+         * 判断 dom 对象是否存在某类名
+         * @param {String} className 类名
+         * @method hasClass
+         * @example sl.array(&quot;divId&quot;).hasClass(&quot;className&quot;);
+         * @return boolean
          */
-        toString: function() {
-            var str = &quot;{&quot;;
-            for (var i in this.object) {
-                var type = sl.extendBase.getType(this.object[i]);
-                if (type == sl.extendBase.Config.Object) {
-                    str += i + &quot;:&quot; + sl.object(this.object[i]).toString();
-                } else if (type == sl.extendBase.Config.Array) {
-                    str += i + &quot;:&quot; + sl.array(this.object[i]).toString();
-                } else {
-                    str += i + &quot;:&quot; + this.object[i];
-                }
-                str += &quot;, &quot;;
-            }
-            str.length &gt; 1? str = str.substr(0, str.lastIndexOf(&quot;,&quot;)) + &quot;}&quot; : str += &quot;}&quot;;
-            return str;
-        },
-
-        /**
-         * 复制对象
-         * @method clone
-         * @example sl.object(object).clone();
-         * @return {Object} 复制后的对象
-         */
-        clone: function() {
-            var rst = {};
-            for (var i in this.object) {
-                var type = sl.extendBase.getType(this.object[i]);
-                if (type == sl.extendBase.Config.Object) {
-                    rst[i] = sl.object(this.object[i]).clone();
-                } else if (type == sl.extendBase.Config.Array) {
-                    rst[i] = sl.array(this.object[i]).clone();
-                } else {
-                    rst[i] = this.object[i];
-                }
-            };
-            return rst;
+        hasClass: function(className) {
+            return this.el.className.indexOf(className) &gt; -1;
         }
     }
 
- 	return function(object) {
- 		if (sl.extendBase.getType(object) != sl.extendBase.Config.Object) {
- 			console.log(&quot;[错误] sl.object 参数类型错误&quot;);
- 		} else {
- 			return new slobj(object);
- 		}
- 	}
- })();
+    return function(elStr) {
+        if (!document.getElementById(elStr)) {
+            console.log(&quot;[错误] 未找到 dom 元素: &quot; + elStr);
+        } else {
+            return new dom(document.getElementById(elStr));
+        }
+    }
+})();
     </pre>
 </div>
 

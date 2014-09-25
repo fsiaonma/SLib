@@ -6,8 +6,8 @@
  */
 var sl = SLib = {}
 
-try {
-	module.exports = sl;	
-} catch (e) {
-	console.log(e);
-}
+// try {
+// 	module.exports = sl;	
+// } catch (e) {
+// 	console.log(e);
+// }
