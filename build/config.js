@@ -32,7 +32,8 @@ config.projects = [{
                 // "cookie/", // cookie 模块
                 // "format/",  // 文件格式模块
                 // "picShower/" // 图片显示类
-                "dom/" // dom 附加操作
+                // "dom/" // dom 附加操作
+                "browser/" // 浏览器信息
             ],             
             outputFile: 'slib.pro.js'
         }],

@@ -5,6 +5,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "formatBase",
         "sl",
         "sl.array",
+        "sl.browser",
         "sl.cookie",
         "sl.dom",
         "sl.eagleMysql",

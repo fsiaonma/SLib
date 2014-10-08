@@ -6,6 +6,15 @@
         "url": "https://github.com/fsiaonma/SLib"
     },
     "files": {
+        "..\\dev\\browser\\browser.js": {
+            "name": "..\\dev\\browser\\browser.js",
+            "modules": {},
+            "classes": {
+                "sl.browser": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "..\\dev\\cookie\\slCookie.js": {
             "name": "..\\dev\\cookie\\slCookie.js",
             "modules": {},
@@ -142,6 +151,19 @@
     },
     "modules": {},
     "classes": {
+        "sl.browser": {
+            "name": "sl.browser",
+            "shortname": "sl.browser",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "..\\dev\\browser\\browser.js",
+            "line": 1,
+            "description": "browser 类",
+            "is_constructor": 1
+        },
         "sl.cookie": {
             "name": "sl.cookie",
             "shortname": "sl.cookie",

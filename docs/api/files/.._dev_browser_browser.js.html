@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\dev\log\log_mode.js - SLib 使用说明文档</title>
+    <title>..\dev\browser\browser.js - SLib 使用说明文档</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -110,52 +110,32 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\dev\log\log_mode.js</h1>
+                        <h1 class="file-heading">File: ..\dev\browser\browser.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * log_mode 类，标记打印日志级别。
- * @class sl.log_mode
+ * browser 类
+ * @class sl.browser
  * @constructor
  */
-sl.log_mode = (function() {
-	var o = {};
-
-	/**
-	 * 调试信息级别代号
-	 * @property DEBUG
-	 * @type {Number}
-	 * @default 0
-	 */
-	o.DEBUG = 0;
-
-	/**
-	 * 日志信息级别代号
-	 * @property INFO
-	 * @type {Number}
-	 * @default 1
-	 */
-	o.INFO = 1;
-
-	/**
-	 * 警告信息级别代号
-	 * @property WARN
-	 * @type {Number}
-	 * @default 2
-	 */
-	o.WARN = 2;
-
-	/**
-	 * 错误信息级别代号
-	 * @property ERROR
-	 * @type {Number}
-	 * @default 3
-	 */
-	o.ERROR = 3;
-
-	return o;
-})()
+sl.browser = (function() {
+    var u = navigator.userAgent; 
+    var app = navigator.appVersion;
+    return {
+        trident: u.indexOf(&#x27;Trident&#x27;) &gt; -1, //IE内核
+        presto: u.indexOf(&#x27;Presto&#x27;) &gt; -1, //opera内核
+        webKit: u.indexOf(&#x27;AppleWebKit&#x27;) &gt; -1, //苹果、谷歌内核
+        gecko: u.indexOf(&#x27;Gecko&#x27;) &gt; -1 &amp;&amp; u.indexOf(&#x27;KHTML&#x27;) == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/)||!!u.match(/AppleWebKit/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf(&#x27;Android&#x27;) &gt; -1 || u.indexOf(&#x27;Linux&#x27;) &gt; -1, //android终端或者uc浏览器
+        iPhone: u.indexOf(&#x27;iPhone&#x27;) &gt; -1 || u.indexOf(&#x27;Mac&#x27;) &gt; -1, //是否为iPhone或者QQHD浏览器
+        iPad: u.indexOf(&#x27;iPad&#x27;) &gt; -1, //是否iPad
+        webApp: u.indexOf(&#x27;Safari&#x27;) == -1, //是否web应该程序，没有头部与底部
+        language: (navigator.browserLanguage || navigator.language).toLowerCase() // 语言
+    }
+})();
     </pre>
 </div>
 
